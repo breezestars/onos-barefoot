@@ -1,0 +1,17 @@
+ingress::parse_tcp is split into 2 states:
+  ingress::parse_tcp
+  ingress::parse_tcp.$split_0
+egress::parse_tcp is split into 2 states:
+  egress::parse_tcp
+  egress::parse_tcp.$split_0
+egress::parse_ethernet is split into 2 states:
+  egress::parse_ethernet
+  egress::parse_ethernet.$split_0
+allocated { $byte1 } to {  [ ingress::$check_resubmit : (bit<8>)ig_intr_md.resubmit_flag; ] }
+allocated { $half } to {  [ ingress::start : ig_intr_md.ingress_port; ] }
+allocated { $half } to {  [ ingress::parse_ethernet : hdr.ethernet/ethernet.eth_type; ] }
+allocated { $byte1 } to {  [ ingress::parse_ipv4 : hdr.ipv4/ipv4.protocol; ] }
+allocated { $byte1 } to {  [ egress::$check_mirrored : packet.lookahead<bit<8>>(); ] }
+allocated { $half } to {  [ egress::start : ig_intr_md.ingress_port; ] }
+allocated { $half } to {  [ egress::parse_ethernet.$split_0 : hdr.ethernet/ethernet.eth_type; ] }
+allocated { $byte1 } to {  [ egress::parse_ipv4 : hdr.ipv4/ipv4.protocol; ] }

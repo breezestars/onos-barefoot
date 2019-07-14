@@ -1,0 +1,203 @@
++---------------------------------------------------------------------+
+|  Log file: pa.results.log                                           |
+|  Compiler version: 8.9.0                                            |
+|  Created on: Thu Jul 11 10:30:28 2019                               |
+|  Run ID: 0ecf3262bba447de                                           |
++---------------------------------------------------------------------+
+
+Allocation state: Final Allocation
+-----------------------------------------------------------------------------
+|       PHV Group        | Containers Used |  Bits Used   | Bits Available |
+| (container bit widths) |     (% used)    |   (% used)   |                |
+-----------------------------------------------------------------------------
+|         0 (32)         |    5 (31.25%)   | 160 (31.25%) |      512       |
+|         1 (32)         |    0 (0.00%)    |  0 (0.00%)   |      512       |
+|         2 (32)         |    0 (0.00%)    |  0 (0.00%)   |      512       |
+|         3 (32)         |    0 (0.00%)    |  0 (0.00%)   |      512       |
+|    Total for 32 bit    |    5 (7.81%)    | 160 (7.81%)  |      2048      |
+|                        |                 |              |                |
+|         4 (8)          |    5 (31.25%)   | 29 (22.66%)  |      128       |
+|         5 (8)          |    3 (18.75%)   |  12 (9.38%)  |      128       |
+|         6 (8)          |    0 (0.00%)    |  0 (0.00%)   |      128       |
+|         7 (8)          |    0 (0.00%)    |  0 (0.00%)   |      128       |
+|    Total for 8 bit     |    8 (12.50%)   |  41 (8.01%)  |      512       |
+|                        |                 |              |                |
+|         8 (16)         |    5 (31.25%)   | 60 (23.44%)  |      256       |
+|         9 (16)         |    3 (18.75%)   | 34 (13.28%)  |      256       |
+|        10 (16)         |    0 (0.00%)    |  0 (0.00%)   |      256       |
+|        11 (16)         |    0 (0.00%)    |  0 (0.00%)   |      256       |
+|        12 (16)         |    0 (0.00%)    |  0 (0.00%)   |      256       |
+|        13 (16)         |    0 (0.00%)    |  0 (0.00%)   |      256       |
+|    Total for 16 bit    |    8 (8.33%)    |  94 (6.12%)  |      1536      |
+|                        |                 |              |                |
+|       14 (32) T        |   12 (75.00%)   | 384 (75.00%) |      512       |
+|       15 (32) T        |    0 (0.00%)    |  0 (0.00%)   |      512       |
+|    Total for 32 bit    |   12 (37.50%)   | 384 (37.50%) |      1024      |
+|                        |                 |              |                |
+|        16 (8) T        |    8 (50.00%)   | 64 (50.00%)  |      128       |
+|        17 (8) T        |    0 (0.00%)    |  0 (0.00%)   |      128       |
+|    Total for 8 bit     |    8 (25.00%)   | 64 (25.00%)  |      256       |
+|                        |                 |              |                |
+|       18 (16) T        |   15 (93.75%)   | 240 (93.75%) |      256       |
+|       19 (16) T        |    0 (0.00%)    |  0 (0.00%)   |      256       |
+|       20 (16) T        |    0 (0.00%)    |  0 (0.00%)   |      256       |
+|    Total for 16 bit    |   15 (31.25%)   | 240 (31.25%) |      768       |
+|                        |                 |              |                |
+|       MAU total        |    21 (9.38%)   | 295 (7.20%)  |      4096      |
+|     Tagalong total     |   35 (31.25%)   | 688 (33.59%) |      2048      |
+|     Overall total      |   56 (16.67%)   | 983 (16.00%) |      6144      |
+-----------------------------------------------------------------------------
+
+--------------------------------------------
+PHV Allocation
+--------------------------------------------
+
+Allocations in Group 0 32 bits
+  32-bit PHV 0 (ingress): phv0[31:16] = ingress::hdr.ethernet.src_addr[15:0] (deparsed)
+  32-bit PHV 0 (ingress): phv0[15:0] = ingress::hdr.ethernet.eth_type[15:0] (deparsed)
+  32-bit PHV 1 (ingress): phv1[31:0] = ingress::hdr.ethernet.dst_addr[47:16] (deparsed)
+  32-bit PHV 2 (ingress): phv2[31:0] = ingress::hdr.ethernet.src_addr[47:16] (deparsed)
+  32-bit PHV 3 (ingress): phv3[31:0] = ingress::hdr.ipv4.src_addr[31:0] (deparsed)
+  32-bit PHV 4 (ingress): phv4[31:0] = ingress::hdr.ipv4.dst_addr[31:0] (deparsed)
+  >> 5 in ingress and 0 in egress
+
+Allocations in Group 4 8 bits
+  8-bit PHV 64 (ingress): phv64[2:0] = ingress::ig_intr_md_for_dprsr.mirror_type[2:0] (deparsed)
+  8-bit PHV 65 (ingress): phv65[2:0] = ingress::ig_intr_md_for_dprsr.drop_ctl[2:0] (deparsed)
+  8-bit PHV 66 (ingress): phv66[7:1] = ingress::compiler_generated_meta.^bridged_metadata.__pad_0[6:0]
+  8-bit PHV 66 (ingress): phv66[0:0] = ingress::compiler_generated_meta.^bridged_metadata.^fields_md_is_controller_packet_out[0:0] (deparsed)
+  8-bit PHV 67 (ingress): phv67[7:0] = ingress::hdr.ipv4.protocol[7:0] (deparsed)
+  8-bit PHV 68 (ingress): phv68[6:6] = ingress::hdr.icmp.$valid[0:0] (deparsed)
+  8-bit PHV 68 (ingress): phv68[5:5] = ingress::hdr.udp.$valid[0:0] (deparsed)
+  8-bit PHV 68 (ingress): phv68[4:4] = ingress::hdr.tcp.$valid[0:0] (deparsed)
+  8-bit PHV 68 (ingress): phv68[3:3] = ingress::hdr.ipv4.$valid[0:0] (deparsed)
+  8-bit PHV 68 (ingress): phv68[2:2] = ingress::hdr.ethernet.$valid[0:0] (deparsed)
+  8-bit PHV 68 (ingress): phv68[1:1] = ingress::hdr.packet_out.$valid[0:0]
+  8-bit PHV 68 (ingress): phv68[0:0] = ingress::compiler_generated_meta.^bridged_metadata.$valid[0:0] (deparsed)
+  >> 5 in ingress and 0 in egress
+
+Allocations in Group 5 8 bits
+  8-bit PHV 80 (egress): phv80[4:4] = egress::fabric_metadata.clone_to_cpu[0:0]
+  8-bit PHV 80 (egress): phv80[3:3] = egress::fabric_metadata.is_multicast[0:0]
+  8-bit PHV 80 (egress): phv80[2:0] = egress::eg_intr_md_for_dprsr.drop_ctl[2:0] (deparsed)
+  8-bit PHV 81 (egress): phv81[5:5] = egress::hdr.packet_in.$valid[0:0] (deparsed)
+  8-bit PHV 81 (egress): phv81[4:4] = egress::hdr.icmp.$valid[0:0] (deparsed)
+  8-bit PHV 81 (egress): phv81[3:3] = egress::hdr.udp.$valid[0:0] (deparsed)
+  8-bit PHV 81 (egress): phv81[2:2] = egress::hdr.tcp.$valid[0:0] (deparsed)
+  8-bit PHV 81 (egress): phv81[1:1] = egress::hdr.ipv4.$valid[0:0] (deparsed)
+  8-bit PHV 81 (egress): phv81[0:0] = egress::hdr.ethernet.$valid[0:0] (deparsed)
+  8-bit PHV 82 (egress): phv82[0:0] = egress::fabric_metadata.is_controller_packet_out[0:0]
+  >> 0 in ingress and 3 in egress
+
+Allocations in Group 8 16 bits
+  16-bit PHV 128 (ingress): phv128[15:7] = ingress::hdr.packet_out.egress_port[8:0]
+  16-bit PHV 129 (ingress): phv129[8:0] = ingress::ig_intr_md_for_tm.ucast_egress_port[8:0] (deparsed)
+  16-bit PHV 130 (ingress): phv130[9:0] = ingress::compiler_generated_meta.mirror_id[9:0] (deparsed)
+  16-bit PHV 131 (ingress): phv131[15:9] = ingress::compiler_generated_meta.^bridged_metadata.__pad_1[6:0]
+  16-bit PHV 131 (ingress): phv131[8:0] = ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port[8:0] (deparsed)
+  16-bit PHV 132 (ingress): phv132[15:0] = ingress::hdr.ethernet.dst_addr[15:0] (deparsed)
+  >> 5 in ingress and 0 in egress
+
+Allocations in Group 9 16 bits
+  16-bit PHV 144 (egress): phv144[8:0] = egress::eg_intr_md.egress_port[8:0] (deparsed)
+  16-bit PHV 145 (egress): phv145[8:0] = egress::ig_intr_md.ingress_port[8:0]
+  16-bit PHV 146 (egress): phv146[15:7] = egress::hdr.packet_in.ingress_port[8:0] (deparsed)
+  16-bit PHV 146 (egress): phv146[6:0] = egress::hdr.packet_in._pad[6:0] (deparsed)
+  >> 0 in ingress and 3 in egress
+
+Allocations in Group 14 32 bits (tagalong)
+  32-bit PHV 256 (ingress): phv256[31:28] = ingress::hdr.ipv4.version[3:0] (tagalong capable) (deparsed)
+  32-bit PHV 256 (ingress): phv256[27:24] = ingress::hdr.ipv4.ihl[3:0] (tagalong capable) (deparsed)
+  32-bit PHV 256 (ingress): phv256[23:18] = ingress::hdr.ipv4.dscp[5:0] (tagalong capable) (deparsed)
+  32-bit PHV 256 (ingress): phv256[17:16] = ingress::hdr.ipv4.ecn[1:0] (tagalong capable) (deparsed)
+  32-bit PHV 256 (ingress): phv256[15:0] = ingress::hdr.ipv4.total_len[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 257 (ingress): phv257[31:28] = ingress::hdr.tcp.data_offset[3:0] (tagalong capable) (deparsed)
+  32-bit PHV 257 (ingress): phv257[31:16] = ingress::hdr.udp.sport[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 257 (ingress): phv257[31:24] = ingress::hdr.icmp.icmp_type[7:0] (tagalong capable) (deparsed)
+  32-bit PHV 257 (ingress): phv257[27:25] = ingress::hdr.tcp.res[2:0] (tagalong capable) (deparsed)
+  32-bit PHV 257 (ingress): phv257[24:22] = ingress::hdr.tcp.ecn[2:0] (tagalong capable) (deparsed)
+  32-bit PHV 257 (ingress): phv257[23:16] = ingress::hdr.icmp.icmp_code[7:0] (tagalong capable) (deparsed)
+  32-bit PHV 257 (ingress): phv257[21:16] = ingress::hdr.tcp.ctrl[5:0] (tagalong capable) (deparsed)
+  32-bit PHV 257 (ingress): phv257[15:0] = ingress::hdr.tcp.window[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 257 (ingress): phv257[15:0] = ingress::hdr.udp.dport[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 257 (ingress): phv257[15:0] = ingress::hdr.icmp.checksum[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 258 (ingress): phv258[31:16] = ingress::hdr.ipv4.identification[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 258 (ingress): phv258[15:13] = ingress::hdr.ipv4.flags[2:0] (tagalong capable) (deparsed)
+  32-bit PHV 258 (ingress): phv258[12:0] = ingress::hdr.ipv4.frag_offset[12:0] (tagalong capable) (deparsed)
+  32-bit PHV 259 (ingress): phv259[31:16] = ingress::hdr.tcp.sport[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 259 (ingress): phv259[31:16] = ingress::hdr.udp.len[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 259 (ingress): phv259[31:16] = ingress::hdr.icmp.identifier[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 259 (ingress): phv259[15:0] = ingress::hdr.tcp.dport[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 259 (ingress): phv259[15:0] = ingress::hdr.udp.checksum[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 259 (ingress): phv259[15:0] = ingress::hdr.icmp.sequence_number[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 260 (egress): phv260[31:28] = egress::hdr.ipv4.version[3:0] (tagalong capable) (deparsed)
+  32-bit PHV 260 (egress): phv260[27:24] = egress::hdr.ipv4.ihl[3:0] (tagalong capable) (deparsed)
+  32-bit PHV 260 (egress): phv260[23:18] = egress::hdr.ipv4.dscp[5:0] (tagalong capable) (deparsed)
+  32-bit PHV 260 (egress): phv260[17:16] = egress::hdr.ipv4.ecn[1:0] (tagalong capable) (deparsed)
+  32-bit PHV 260 (egress): phv260[15:0] = egress::hdr.ipv4.total_len[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 261 (egress): phv261[31:28] = egress::hdr.tcp.data_offset[3:0] (tagalong capable) (deparsed)
+  32-bit PHV 261 (egress): phv261[31:16] = egress::hdr.udp.sport[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 261 (egress): phv261[31:24] = egress::hdr.icmp.icmp_type[7:0] (tagalong capable) (deparsed)
+  32-bit PHV 261 (egress): phv261[27:25] = egress::hdr.tcp.res[2:0] (tagalong capable) (deparsed)
+  32-bit PHV 261 (egress): phv261[24:22] = egress::hdr.tcp.ecn[2:0] (tagalong capable) (deparsed)
+  32-bit PHV 261 (egress): phv261[23:16] = egress::hdr.icmp.icmp_code[7:0] (tagalong capable) (deparsed)
+  32-bit PHV 261 (egress): phv261[21:16] = egress::hdr.tcp.ctrl[5:0] (tagalong capable) (deparsed)
+  32-bit PHV 261 (egress): phv261[15:0] = egress::hdr.tcp.window[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 261 (egress): phv261[15:0] = egress::hdr.udp.dport[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 261 (egress): phv261[15:0] = egress::hdr.icmp.checksum[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 262 (egress): phv262[31:16] = egress::hdr.ipv4.identification[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 262 (egress): phv262[15:13] = egress::hdr.ipv4.flags[2:0] (tagalong capable) (deparsed)
+  32-bit PHV 262 (egress): phv262[12:0] = egress::hdr.ipv4.frag_offset[12:0] (tagalong capable) (deparsed)
+  32-bit PHV 263 (egress): phv263[31:16] = egress::hdr.ethernet.src_addr[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 263 (egress): phv263[15:0] = egress::hdr.ethernet.eth_type[15:0] (tagalong capable) (deparsed)
+  32-bit PHV 264 (egress): phv264[31:0] = egress::hdr.ethernet.src_addr[47:16] (tagalong capable) (deparsed)
+  32-bit PHV 265 (egress): phv265[31:0] = egress::hdr.ipv4.src_addr[31:0] (tagalong capable) (deparsed)
+  32-bit PHV 266 (egress): phv266[31:0] = egress::hdr.ipv4.dst_addr[31:0] (tagalong capable) (deparsed)
+  32-bit PHV 267 (egress): phv267[31:0] = egress::hdr.tcp.seq_no[31:0] (tagalong capable) (deparsed)
+  32-bit PHV 267 (egress): phv267[31:0] = egress::hdr.icmp.timestamp[31:0] (tagalong capable) (deparsed)
+  >> 4 in ingress and 8 in egress
+
+Allocations in Group 16 8 bits (tagalong)
+  8-bit PHV 288 (ingress): phv288[7:0] = ingress::compiler_generated_meta.^bridged_metadata.^bridged_metadata_indicator[7:0] (tagalong capable) (deparsed)
+  8-bit PHV 289 (ingress): phv289[7:0] = ingress::hdr.ipv4.ttl[7:0] (tagalong capable) (deparsed)
+  8-bit PHV 290 (ingress): phv290[7:0] = ingress::hdr.tcp.ack_no[7:0] (tagalong capable) (deparsed)
+  8-bit PHV 291 (ingress): phv291[7:0] = ingress::hdr.tcp.ack_no[15:8] (tagalong capable) (deparsed)
+  8-bit PHV 292 (egress): phv292[7:0] = egress::hdr.ethernet.dst_addr[23:16] (tagalong capable) (deparsed)
+  8-bit PHV 293 (egress): phv293[7:0] = egress::hdr.ethernet.dst_addr[31:24] (tagalong capable) (deparsed)
+  8-bit PHV 294 (egress): phv294[7:0] = egress::hdr.ethernet.dst_addr[39:32] (tagalong capable) (deparsed)
+  8-bit PHV 295 (egress): phv295[7:0] = egress::hdr.ethernet.dst_addr[47:40] (tagalong capable) (deparsed)
+  >> 4 in ingress and 4 in egress
+
+Allocations in Group 18 16 bits (tagalong)
+  16-bit PHV 320 (ingress): phv320[15:0] = ingress::hdr.ipv4.hdr_checksum[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 321 (ingress): phv321[15:0] = ingress::hdr.tcp.urgent_ptr[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 321 (ingress): phv321[15:0] = ingress::hdr.icmp.timestamp[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 322 (ingress): phv322[15:0] = ingress::hdr.tcp.checksum[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 322 (ingress): phv322[15:0] = ingress::hdr.icmp.timestamp[31:16] (tagalong capable) (deparsed)
+  16-bit PHV 323 (ingress): phv323[15:0] = ingress::hdr.tcp.seq_no[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 323 (ingress): phv323[15:0] = ingress::hdr.icmp.timestamp[47:32] (tagalong capable) (deparsed)
+  16-bit PHV 324 (ingress): phv324[15:0] = ingress::hdr.tcp.seq_no[31:16] (tagalong capable) (deparsed)
+  16-bit PHV 324 (ingress): phv324[15:0] = ingress::hdr.icmp.timestamp[63:48] (tagalong capable) (deparsed)
+  16-bit PHV 325 (ingress): phv325[15:0] = ingress::hdr.tcp.ack_no[31:16] (tagalong capable) (deparsed)
+  16-bit PHV 326 (egress): phv326[15:8] = egress::hdr.ipv4.ttl[7:0] (tagalong capable) (deparsed)
+  16-bit PHV 326 (egress): phv326[7:0] = egress::hdr.ipv4.protocol[7:0] (tagalong capable) (deparsed)
+  16-bit PHV 327 (egress): phv327[15:0] = egress::hdr.ipv4.hdr_checksum[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 328 (egress): phv328[15:0] = egress::hdr.tcp.dport[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 328 (egress): phv328[15:0] = egress::hdr.udp.checksum[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 328 (egress): phv328[15:0] = egress::hdr.icmp.sequence_number[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 329 (egress): phv329[15:0] = egress::hdr.tcp.sport[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 329 (egress): phv329[15:0] = egress::hdr.udp.len[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 329 (egress): phv329[15:0] = egress::hdr.icmp.identifier[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 330 (egress): phv330[15:0] = egress::hdr.tcp.urgent_ptr[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 330 (egress): phv330[15:0] = egress::hdr.icmp.timestamp[47:32] (tagalong capable) (deparsed)
+  16-bit PHV 331 (egress): phv331[15:0] = egress::hdr.tcp.checksum[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 331 (egress): phv331[15:0] = egress::hdr.icmp.timestamp[63:48] (tagalong capable) (deparsed)
+  16-bit PHV 332 (egress): phv332[15:0] = egress::hdr.tcp.ack_no[15:0] (tagalong capable) (deparsed)
+  16-bit PHV 333 (egress): phv333[15:0] = egress::hdr.tcp.ack_no[31:16] (tagalong capable) (deparsed)
+  16-bit PHV 334 (egress): phv334[15:0] = egress::hdr.ethernet.dst_addr[15:0] (tagalong capable) (deparsed)
+  >> 6 in ingress and 9 in egress
+
+
+Final POV layout (ingress):
+
+Final POV layout (egress):

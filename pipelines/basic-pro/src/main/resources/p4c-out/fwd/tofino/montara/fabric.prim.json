@@ -1,0 +1,271 @@
+{
+  "tables" : [
+    {
+      "name" : "tbl_act",
+      "actions" : [
+        {
+          "name" : "act",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.packet_out.egress_port"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.is_controller_packet_out"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_3",
+      "actions" : [
+        {
+          "name" : "act_3",
+          "primitives" : []
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_2",
+      "actions" : [
+        {
+          "name" : "act_2",
+          "primitives" : [
+            {
+              "name" : "CountFromHashPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.port_counters_control.ingress_port_counter"
+              },
+              "idx" : {
+                "type" : "hash",
+                "name" : "hash_FabricIngress.port_counters_control.ingress_port_counter",
+                "algorithm" : "identity"
+              },
+              "hash_inputs" : ["compiler_generated_meta.bridged_metadata.fields_ig_intr_md_ingress_port"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_0",
+      "actions" : [
+        {
+          "name" : "act_0",
+          "primitives" : [
+            {
+              "name" : "CountFromHashPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_port_counter"
+              },
+              "idx" : {
+                "type" : "hash",
+                "name" : "hash_FabricIngress.acl.acl_port_counter",
+                "algorithm" : "identity"
+              },
+              "hash_inputs" : ["compiler_generated_meta.bridged_metadata.fields_ig_intr_md_ingress_port"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.acl.acl",
+      "actions" : [
+        {
+          "name" : "FabricIngress.acl.output",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "port_num"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.acl.punt_to_cpu",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "192"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.acl.drop",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_1",
+      "actions" : [
+        {
+          "name" : "act_1",
+          "primitives" : [
+            {
+              "name" : "CountFromHashPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.port_counters_control.egress_port_counter"
+              },
+              "idx" : {
+                "type" : "hash",
+                "name" : "hash_FabricIngress.port_counters_control.egress_port_counter",
+                "algorithm" : "identity"
+              },
+              "hash_inputs" : ["ig_intr_md_for_tm.ucast_egress_port"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_4",
+      "actions" : [
+        {
+          "name" : "act_4",
+          "primitives" : []
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_5",
+      "actions" : [
+        {
+          "name" : "act_5",
+          "primitives" : [
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "eg_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_6",
+      "actions" : [
+        {
+          "name" : "act_6",
+          "primitives" : [
+            {
+              "name" : "AddHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.packet_in.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.packet_in.ingress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "ig_intr_md.ingress_port"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
