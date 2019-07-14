@@ -1,0 +1,1640 @@
+version:
+  version: 1.0.1
+  run_id: "0ecf3262bba447de"
+  target: Tofino
+phv ingress:
+  compiler_generated_meta.bridged_metadata.bridged_metadata_indicator: TB0
+  compiler_generated_meta.bridged_metadata.__pad_0: B2(1..7)
+  fabric_metadata.is_controller_packet_out: B2(0)
+  compiler_generated_meta.bridged_metadata.__pad_1: H3(9..15)
+  ig_intr_md.ingress_port: H3(0..8)
+  hdr.packet_out.egress_port: H0(7..15)
+  hdr.ethernet.dst_addr.0-15: H4
+  hdr.ethernet.dst_addr.16-47: W1
+  hdr.ethernet.src_addr.0-15: W0(16..31)
+  hdr.ethernet.src_addr.16-47: W2
+  hdr.ethernet.eth_type: W0(0..15)
+  hdr.ipv4.version: TW0(28..31)
+  hdr.ipv4.ihl: TW0(24..27)
+  hdr.ipv4.dscp: TW0(18..23)
+  hdr.ipv4.ecn: TW0(16..17)
+  hdr.ipv4.total_len: TW0(0..15)
+  hdr.ipv4.identification: TW2(16..31)
+  hdr.ipv4.flags: TW2(13..15)
+  hdr.ipv4.frag_offset: TW2(0..12)
+  hdr.ipv4.ttl: TB1
+  hdr.ipv4.protocol: B3
+  hdr.ipv4.hdr_checksum: TH0
+  hdr.ipv4.src_addr: W3
+  hdr.ipv4.dst_addr: W4
+  hdr.tcp.sport: TW3(16..31)
+  hdr.tcp.dport: TW3(0..15)
+  hdr.tcp.seq_no.0-15: TH3
+  hdr.tcp.seq_no.16-31: TH4
+  hdr.tcp.ack_no.0-7: TB2
+  hdr.tcp.ack_no.8-15: TB3
+  hdr.tcp.ack_no.16-31: TH5
+  hdr.tcp.data_offset: TW1(28..31)
+  hdr.tcp.res: TW1(25..27)
+  hdr.tcp.ecn: TW1(22..24)
+  hdr.tcp.ctrl: TW1(16..21)
+  hdr.tcp.window: TW1(0..15)
+  hdr.tcp.checksum: TH2
+  hdr.tcp.urgent_ptr: TH1
+  hdr.udp.sport: TW1(16..31)
+  hdr.udp.dport: TW1(0..15)
+  hdr.udp.len: TW3(16..31)
+  hdr.udp.checksum: TW3(0..15)
+  hdr.icmp.icmp_type: TW1(24..31)
+  hdr.icmp.icmp_code: TW1(16..23)
+  hdr.icmp.checksum: TW1(0..15)
+  hdr.icmp.identifier: TW3(16..31)
+  hdr.icmp.sequence_number: TW3(0..15)
+  hdr.icmp.timestamp.0-15: TH1
+  hdr.icmp.timestamp.16-31: TH2
+  hdr.icmp.timestamp.32-47: TH3
+  hdr.icmp.timestamp.48-63: TH4
+  ig_intr_md_for_tm.ucast_egress_port: H1(0..8)
+  ig_intr_md_for_dprsr.drop_ctl: B1(0..2)
+  ig_intr_md_for_dprsr.mirror_type: B0(0..2)
+  compiler_generated_meta.mirror_id: H2(0..9)
+  compiler_generated_meta.bridged_metadata.$valid: B4(0)
+  hdr.packet_out.$valid: B4(1)
+  hdr.ethernet.$valid: B4(2)
+  hdr.ipv4.$valid: B4(3)
+  hdr.tcp.$valid: B4(4)
+  hdr.udp.$valid: B4(5)
+  hdr.icmp.$valid: B4(6)
+  context_json:
+    TB0:
+      compiler_generated_meta.bridged_metadata.bridged_metadata_indicator:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TB1:
+      hdr.ipv4.ttl:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TB2:
+      hdr.tcp.ack_no:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TB3:
+      hdr.tcp.ack_no:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TH0:
+      hdr.ipv4.hdr_checksum:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TH1:
+      hdr.tcp.urgent_ptr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.timestamp ]
+      hdr.icmp.timestamp:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.urgent_ptr ]
+    TH2:
+      hdr.tcp.checksum:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.timestamp ]
+      hdr.icmp.timestamp:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.checksum ]
+    TH3:
+      hdr.tcp.seq_no:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.timestamp ]
+      hdr.icmp.timestamp:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.seq_no ]
+    TH4:
+      hdr.tcp.seq_no:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.timestamp ]
+      hdr.icmp.timestamp:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.seq_no ]
+    TH5:
+      hdr.tcp.ack_no:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TW0:
+      hdr.ipv4.total_len:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.ecn:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.dscp:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.ihl:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.version:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TW1:
+      hdr.tcp.window:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type, hdr.udp.dport, hdr.udp.sport ]
+      hdr.tcp.ctrl:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type, hdr.udp.dport, hdr.udp.sport ]
+      hdr.tcp.ecn:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type, hdr.udp.dport, hdr.udp.sport ]
+      hdr.tcp.res:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type, hdr.udp.dport, hdr.udp.sport ]
+      hdr.tcp.data_offset:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type, hdr.udp.dport, hdr.udp.sport ]
+      hdr.icmp.checksum:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.window, hdr.tcp.ctrl, hdr.tcp.ecn, hdr.tcp.res, hdr.tcp.data_offset, hdr.udp.dport, hdr.udp.sport ]
+      hdr.icmp.icmp_code:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.window, hdr.tcp.ctrl, hdr.tcp.ecn, hdr.tcp.res, hdr.tcp.data_offset, hdr.udp.dport, hdr.udp.sport ]
+      hdr.icmp.icmp_type:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.window, hdr.tcp.ctrl, hdr.tcp.ecn, hdr.tcp.res, hdr.tcp.data_offset, hdr.udp.dport, hdr.udp.sport ]
+      hdr.udp.dport:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.window, hdr.tcp.ctrl, hdr.tcp.ecn, hdr.tcp.res, hdr.tcp.data_offset, hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type ]
+      hdr.udp.sport:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.window, hdr.tcp.ctrl, hdr.tcp.ecn, hdr.tcp.res, hdr.tcp.data_offset, hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type ]
+    TW2:
+      hdr.ipv4.frag_offset:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.flags:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.identification:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TW3:
+      hdr.tcp.dport:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.udp.checksum, hdr.udp.len, hdr.icmp.sequence_number, hdr.icmp.identifier ]
+      hdr.tcp.sport:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.udp.checksum, hdr.udp.len, hdr.icmp.sequence_number, hdr.icmp.identifier ]
+      hdr.udp.checksum:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.dport, hdr.tcp.sport, hdr.icmp.sequence_number, hdr.icmp.identifier ]
+      hdr.udp.len:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.dport, hdr.tcp.sport, hdr.icmp.sequence_number, hdr.icmp.identifier ]
+      hdr.icmp.sequence_number:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.dport, hdr.tcp.sport, hdr.udp.checksum, hdr.udp.len ]
+      hdr.icmp.identifier:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.dport, hdr.tcp.sport, hdr.udp.checksum, hdr.udp.len ]
+    B0:
+      ig_intr_md_for_dprsr.mirror_type:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    B1:
+      ig_intr_md_for_dprsr.drop_ctl:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    B2:
+      fabric_metadata.is_controller_packet_out:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      compiler_generated_meta.bridged_metadata.__pad_0:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    B3:
+      hdr.ipv4.protocol:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    B4:
+      compiler_generated_meta.bridged_metadata.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.packet_out.$valid:
+          live_start: parser
+          live_end: 0
+          mutually_exclusive_with: [  ]
+      hdr.ethernet.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.tcp.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.udp.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.icmp.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    H0:
+      hdr.packet_out.egress_port:
+          live_start: parser
+          live_end: 0
+          mutually_exclusive_with: [  ]
+    H1:
+      ig_intr_md_for_tm.ucast_egress_port:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    H2:
+      compiler_generated_meta.mirror_id:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    H3:
+      ig_intr_md.ingress_port:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      compiler_generated_meta.bridged_metadata.__pad_1:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    H4:
+      hdr.ethernet.dst_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    W0:
+      hdr.ethernet.eth_type:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ethernet.src_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    W1:
+      hdr.ethernet.dst_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    W2:
+      hdr.ethernet.src_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    W3:
+      hdr.ipv4.src_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    W4:
+      hdr.ipv4.dst_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+phv egress:
+  eg_intr_md.egress_port: H16(0..8)
+  ig_intr_md.ingress_port: H17(0..8)
+  fabric_metadata.is_multicast: B16(3)
+  fabric_metadata.is_controller_packet_out: B18(0)
+  fabric_metadata.clone_to_cpu: B16(4)
+  hdr.ethernet.dst_addr.0-15: TH14
+  hdr.ethernet.dst_addr.16-23: TB4
+  hdr.ethernet.dst_addr.24-31: TB5
+  hdr.ethernet.dst_addr.32-39: TB6
+  hdr.ethernet.dst_addr.40-47: TB7
+  hdr.ethernet.src_addr.0-15: TW7(16..31)
+  hdr.ethernet.src_addr.16-47: TW8
+  hdr.ethernet.eth_type: TW7(0..15)
+  hdr.ipv4.version: TW4(28..31)
+  hdr.ipv4.ihl: TW4(24..27)
+  hdr.ipv4.dscp: TW4(18..23)
+  hdr.ipv4.ecn: TW4(16..17)
+  hdr.ipv4.total_len: TW4(0..15)
+  hdr.ipv4.identification: TW6(16..31)
+  hdr.ipv4.flags: TW6(13..15)
+  hdr.ipv4.frag_offset: TW6(0..12)
+  hdr.ipv4.ttl: TH6(8..15)
+  hdr.ipv4.protocol: TH6(0..7)
+  hdr.ipv4.hdr_checksum: TH7
+  hdr.ipv4.src_addr: TW9
+  hdr.ipv4.dst_addr: TW10
+  hdr.tcp.sport: TH9
+  hdr.tcp.dport: TH8
+  hdr.tcp.seq_no: TW11
+  hdr.tcp.ack_no.0-15: TH12
+  hdr.tcp.ack_no.16-31: TH13
+  hdr.tcp.data_offset: TW5(28..31)
+  hdr.tcp.res: TW5(25..27)
+  hdr.tcp.ecn: TW5(22..24)
+  hdr.tcp.ctrl: TW5(16..21)
+  hdr.tcp.window: TW5(0..15)
+  hdr.tcp.checksum: TH11
+  hdr.tcp.urgent_ptr: TH10
+  hdr.udp.sport: TW5(16..31)
+  hdr.udp.dport: TW5(0..15)
+  hdr.udp.len: TH9
+  hdr.udp.checksum: TH8
+  hdr.icmp.icmp_type: TW5(24..31)
+  hdr.icmp.icmp_code: TW5(16..23)
+  hdr.icmp.checksum: TW5(0..15)
+  hdr.icmp.identifier: TH9
+  hdr.icmp.sequence_number: TH8
+  hdr.icmp.timestamp.0-31: TW11
+  hdr.icmp.timestamp.32-47: TH10
+  hdr.icmp.timestamp.48-63: TH11
+  eg_intr_md_for_dprsr.drop_ctl: B16(0..2)
+  hdr.packet_in.ingress_port: H18(7..15)
+  hdr.packet_in._pad: H18(0..6)
+  hdr.ethernet.$valid: B17(0)
+  hdr.ipv4.$valid: B17(1)
+  hdr.tcp.$valid: B17(2)
+  hdr.udp.$valid: B17(3)
+  hdr.icmp.$valid: B17(4)
+  hdr.packet_in.$valid: B17(5)
+  context_json:
+    TB4:
+      hdr.ethernet.dst_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TB5:
+      hdr.ethernet.dst_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TB6:
+      hdr.ethernet.dst_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TB7:
+      hdr.ethernet.dst_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TH6:
+      hdr.ipv4.protocol:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.ttl:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TH7:
+      hdr.ipv4.hdr_checksum:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TH8:
+      hdr.tcp.dport:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.udp.checksum, hdr.icmp.sequence_number ]
+      hdr.udp.checksum:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.dport, hdr.icmp.sequence_number ]
+      hdr.icmp.sequence_number:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.dport, hdr.udp.checksum ]
+    TH9:
+      hdr.tcp.sport:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.udp.len, hdr.icmp.identifier ]
+      hdr.udp.len:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.sport, hdr.icmp.identifier ]
+      hdr.icmp.identifier:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.sport, hdr.udp.len ]
+    TH10:
+      hdr.tcp.urgent_ptr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.timestamp ]
+      hdr.icmp.timestamp:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.urgent_ptr ]
+    TH11:
+      hdr.tcp.checksum:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.timestamp ]
+      hdr.icmp.timestamp:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.checksum ]
+    TH12:
+      hdr.tcp.ack_no:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TH13:
+      hdr.tcp.ack_no:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TH14:
+      hdr.ethernet.dst_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TW4:
+      hdr.ipv4.total_len:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.ecn:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.dscp:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.ihl:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.version:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TW5:
+      hdr.tcp.window:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type, hdr.udp.dport, hdr.udp.sport ]
+      hdr.tcp.ctrl:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type, hdr.udp.dport, hdr.udp.sport ]
+      hdr.tcp.ecn:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type, hdr.udp.dport, hdr.udp.sport ]
+      hdr.tcp.res:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type, hdr.udp.dport, hdr.udp.sport ]
+      hdr.tcp.data_offset:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type, hdr.udp.dport, hdr.udp.sport ]
+      hdr.icmp.checksum:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.window, hdr.tcp.ctrl, hdr.tcp.ecn, hdr.tcp.res, hdr.tcp.data_offset, hdr.udp.dport, hdr.udp.sport ]
+      hdr.icmp.icmp_code:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.window, hdr.tcp.ctrl, hdr.tcp.ecn, hdr.tcp.res, hdr.tcp.data_offset, hdr.udp.dport, hdr.udp.sport ]
+      hdr.icmp.icmp_type:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.window, hdr.tcp.ctrl, hdr.tcp.ecn, hdr.tcp.res, hdr.tcp.data_offset, hdr.udp.dport, hdr.udp.sport ]
+      hdr.udp.dport:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.window, hdr.tcp.ctrl, hdr.tcp.ecn, hdr.tcp.res, hdr.tcp.data_offset, hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type ]
+      hdr.udp.sport:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.window, hdr.tcp.ctrl, hdr.tcp.ecn, hdr.tcp.res, hdr.tcp.data_offset, hdr.icmp.checksum, hdr.icmp.icmp_code, hdr.icmp.icmp_type ]
+    TW6:
+      hdr.ipv4.frag_offset:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.flags:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.identification:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TW7:
+      hdr.ethernet.eth_type:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ethernet.src_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TW8:
+      hdr.ethernet.src_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TW9:
+      hdr.ipv4.src_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TW10:
+      hdr.ipv4.dst_addr:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    TW11:
+      hdr.tcp.seq_no:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.icmp.timestamp ]
+      hdr.icmp.timestamp:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [ hdr.tcp.seq_no ]
+    B16:
+      eg_intr_md_for_dprsr.drop_ctl:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      fabric_metadata.is_multicast:
+          live_start: parser
+          live_end: 0
+          mutually_exclusive_with: [  ]
+      fabric_metadata.clone_to_cpu:
+          live_start: parser
+          live_end: 0
+          mutually_exclusive_with: [  ]
+    B17:
+      hdr.ethernet.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.ipv4.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.tcp.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.udp.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.icmp.$valid:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+      hdr.packet_in.$valid:
+          live_start: 0
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    B18:
+      fabric_metadata.is_controller_packet_out:
+          live_start: parser
+          live_end: 0
+          mutually_exclusive_with: [  ]
+    H16:
+      eg_intr_md.egress_port:
+          live_start: parser
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+    H17:
+      ig_intr_md.ingress_port:
+          live_start: parser
+          live_end: 0
+          mutually_exclusive_with: [  ]
+    H18:
+      hdr.packet_in._pad:
+          mutually_exclusive_with: [  ]
+      hdr.packet_in.ingress_port:
+          live_start: 0
+          live_end: deparser
+          mutually_exclusive_with: [  ]
+parser ingress:
+  start: $entry_point
+  init_zero: [ B2, H3, B1, H2, B4 ]
+  multi_write: [ TB1, TH0, TH1, TH2, TH3, TH4, TW0, TW1, TW2, TW3, B3, B4, H3, H4, W0, W1, W2, W3, W4 ]
+  hdr_len_adj: 16
+  states:
+    $entry_point:  # from state $entry_point
+      0:
+        0..1: H3  # bit[7..15] -> H3 bit[8..0]: ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port
+        B4: 1  # value 1 -> B4 bit[0]: ingress::compiler_generated_meta.^bridged_metadata.$valid
+        save: { byte1 : 0, half : 0..1 }
+        shift: 8
+        buf_req: 8
+        next: $check_resubmit
+    $check_resubmit:  # from state ingress::$check_resubmit
+      match: [ byte1 ]
+      # - match byte[-8]: cast
+      0b0*******:
+        buf_req: 0
+        next: $phase0
+      0b1*******:
+        buf_req: 0
+        next: $resubmit
+    $phase0:  # from state ingress::$phase0
+      0:
+        shift: 8
+        buf_req: 8
+        next: $skip_to_packet
+    $skip_to_packet:  # from state ingress::$skip_to_packet
+      0:
+        buf_req: 0
+        next: start
+    start:  # from state ingress::start
+      match: [ half ]
+      # - match byte[-16..-15]: ig_intr_md.ingress_port
+      0b*******011000000:
+        buf_req: 0
+        next: parse_packet_out
+      0x****:
+        save: { half : 12..13 }
+        buf_req: 14
+        next: parse_ethernet
+    parse_packet_out:  # from state ingress::parse_packet_out
+      0:
+        0..1: H0  # bit[0..8] -> H0 bit[15..7]: ingress::hdr.packet_out.egress_port
+        B4: 2  # value 1 -> B4 bit[1]: ingress::hdr.packet_out.$valid
+        save: { half : 14..15 }
+        shift: 2
+        buf_req: 16
+        next: parse_ethernet
+    parse_ethernet:  # from state ingress::parse_ethernet
+      match: [ half ]
+      # - match byte[12..13]: hdr.ethernet.eth_type
+      0x0800:
+        0..3: W1  # ingress::hdr.ethernet.dst_addr[47:16].16-47
+        4..5: H4  # ingress::hdr.ethernet.dst_addr[15:0].0-15
+        6..9: W2  # ingress::hdr.ethernet.src_addr[47:16].16-47
+        10..13: W0
+            # - bit[80..95] -> W0 bit[31..16]: ingress::hdr.ethernet.src_addr[15:0].0-15
+            # - bit[96..111] -> W0 bit[15..0]: ingress::hdr.ethernet.eth_type
+        B4: 4  # value 1 -> B4 bit[2]: ingress::hdr.ethernet.$valid
+        save: { byte1 : 23 }
+        shift: 14
+        buf_req: 24
+        next: parse_ipv4
+      0x****:
+        0..3: W1  # ingress::hdr.ethernet.dst_addr[47:16].16-47
+        4..5: H4  # ingress::hdr.ethernet.dst_addr[15:0].0-15
+        6..9: W2  # ingress::hdr.ethernet.src_addr[47:16].16-47
+        10..13: W0
+            # - bit[80..95] -> W0 bit[31..16]: ingress::hdr.ethernet.src_addr[15:0].0-15
+            # - bit[96..111] -> W0 bit[15..0]: ingress::hdr.ethernet.eth_type
+        B4: 4  # value 1 -> B4 bit[2]: ingress::hdr.ethernet.$valid
+        shift: 14
+        buf_req: 14
+        next: end
+    parse_ipv4:  # from state ingress::parse_ipv4
+      match: [ byte1 ]
+      # - match byte[9]: hdr.ipv4.protocol
+      0x06:
+        0..3: TW0
+            # - bit[0..3] -> TW0 bit[31..28]: ingress::hdr.ipv4.version
+            # - bit[4..7] -> TW0 bit[27..24]: ingress::hdr.ipv4.ihl
+            # - bit[8..13] -> TW0 bit[23..18]: ingress::hdr.ipv4.dscp
+            # - bit[14..15] -> TW0 bit[17..16]: ingress::hdr.ipv4.ecn
+            # - bit[16..31] -> TW0 bit[15..0]: ingress::hdr.ipv4.total_len
+        4..7: TW2
+            # - bit[32..47] -> TW2 bit[31..16]: ingress::hdr.ipv4.identification
+            # - bit[48..50] -> TW2 bit[15..13]: ingress::hdr.ipv4.flags
+            # - bit[51..63] -> TW2 bit[12..0]: ingress::hdr.ipv4.frag_offset
+        8: TB1  # ingress::hdr.ipv4.ttl
+        9: B3  # ingress::hdr.ipv4.protocol
+        10..11: TH0  # ingress::hdr.ipv4.hdr_checksum
+        12..15: W3  # ingress::hdr.ipv4.src_addr
+        16..19: W4  # ingress::hdr.ipv4.dst_addr
+        B4: 8  # value 1 -> B4 bit[3]: ingress::hdr.ipv4.$valid
+        shift: 20
+        buf_req: 20
+        next: parse_tcp
+      0x11:
+        0..3: TW0
+            # - bit[0..3] -> TW0 bit[31..28]: ingress::hdr.ipv4.version
+            # - bit[4..7] -> TW0 bit[27..24]: ingress::hdr.ipv4.ihl
+            # - bit[8..13] -> TW0 bit[23..18]: ingress::hdr.ipv4.dscp
+            # - bit[14..15] -> TW0 bit[17..16]: ingress::hdr.ipv4.ecn
+            # - bit[16..31] -> TW0 bit[15..0]: ingress::hdr.ipv4.total_len
+        4..7: TW2
+            # - bit[32..47] -> TW2 bit[31..16]: ingress::hdr.ipv4.identification
+            # - bit[48..50] -> TW2 bit[15..13]: ingress::hdr.ipv4.flags
+            # - bit[51..63] -> TW2 bit[12..0]: ingress::hdr.ipv4.frag_offset
+        8: TB1  # ingress::hdr.ipv4.ttl
+        9: B3  # ingress::hdr.ipv4.protocol
+        10..11: TH0  # ingress::hdr.ipv4.hdr_checksum
+        12..15: W3  # ingress::hdr.ipv4.src_addr
+        16..19: W4  # ingress::hdr.ipv4.dst_addr
+        B4: 8  # value 1 -> B4 bit[3]: ingress::hdr.ipv4.$valid
+        shift: 20
+        buf_req: 20
+        next: parse_udp
+      0x01:
+        0..3: TW0
+            # - bit[0..3] -> TW0 bit[31..28]: ingress::hdr.ipv4.version
+            # - bit[4..7] -> TW0 bit[27..24]: ingress::hdr.ipv4.ihl
+            # - bit[8..13] -> TW0 bit[23..18]: ingress::hdr.ipv4.dscp
+            # - bit[14..15] -> TW0 bit[17..16]: ingress::hdr.ipv4.ecn
+            # - bit[16..31] -> TW0 bit[15..0]: ingress::hdr.ipv4.total_len
+        4..7: TW2
+            # - bit[32..47] -> TW2 bit[31..16]: ingress::hdr.ipv4.identification
+            # - bit[48..50] -> TW2 bit[15..13]: ingress::hdr.ipv4.flags
+            # - bit[51..63] -> TW2 bit[12..0]: ingress::hdr.ipv4.frag_offset
+        8: TB1  # ingress::hdr.ipv4.ttl
+        9: B3  # ingress::hdr.ipv4.protocol
+        10..11: TH0  # ingress::hdr.ipv4.hdr_checksum
+        12..15: W3  # ingress::hdr.ipv4.src_addr
+        16..19: W4  # ingress::hdr.ipv4.dst_addr
+        B4: 8  # value 1 -> B4 bit[3]: ingress::hdr.ipv4.$valid
+        shift: 20
+        buf_req: 20
+        next: parse_icmp
+      0x**:
+        0..3: TW0
+            # - bit[0..3] -> TW0 bit[31..28]: ingress::hdr.ipv4.version
+            # - bit[4..7] -> TW0 bit[27..24]: ingress::hdr.ipv4.ihl
+            # - bit[8..13] -> TW0 bit[23..18]: ingress::hdr.ipv4.dscp
+            # - bit[14..15] -> TW0 bit[17..16]: ingress::hdr.ipv4.ecn
+            # - bit[16..31] -> TW0 bit[15..0]: ingress::hdr.ipv4.total_len
+        4..7: TW2
+            # - bit[32..47] -> TW2 bit[31..16]: ingress::hdr.ipv4.identification
+            # - bit[48..50] -> TW2 bit[15..13]: ingress::hdr.ipv4.flags
+            # - bit[51..63] -> TW2 bit[12..0]: ingress::hdr.ipv4.frag_offset
+        8: TB1  # ingress::hdr.ipv4.ttl
+        9: B3  # ingress::hdr.ipv4.protocol
+        10..11: TH0  # ingress::hdr.ipv4.hdr_checksum
+        12..15: W3  # ingress::hdr.ipv4.src_addr
+        16..19: W4  # ingress::hdr.ipv4.dst_addr
+        B4: 8  # value 1 -> B4 bit[3]: ingress::hdr.ipv4.$valid
+        shift: 20
+        buf_req: 20
+        next: end
+    parse_tcp:  # from state ingress::parse_tcp
+      0:
+        0..3: TW3
+            # - bit[0..15] -> TW3 bit[31..16]: ingress::hdr.tcp.sport
+            # - bit[16..31] -> TW3 bit[15..0]: ingress::hdr.tcp.dport
+        4..5: TH4  # ingress::hdr.tcp.seq_no[31:16].16-31
+        6..7: TH3  # ingress::hdr.tcp.seq_no[15:0].0-15
+        8..9: TH5  # ingress::hdr.tcp.ack_no[31:16].16-31
+        10: TB3  # ingress::hdr.tcp.ack_no[15:8].8-15
+        11: TB2  # ingress::hdr.tcp.ack_no[7:0].0-7
+        12..15: TW1
+            # - bit[96..99] -> TW1 bit[31..28]: ingress::hdr.tcp.data_offset
+            # - bit[100..102] -> TW1 bit[27..25]: ingress::hdr.tcp.res
+            # - bit[103..105] -> TW1 bit[24..22]: ingress::hdr.tcp.ecn
+            # - bit[106..111] -> TW1 bit[21..16]: ingress::hdr.tcp.ctrl
+            # - bit[112..127] -> TW1 bit[15..0]: ingress::hdr.tcp.window
+        16..17: TH2  # ingress::hdr.tcp.checksum
+        B4: 16  # value 1 -> B4 bit[4]: ingress::hdr.tcp.$valid
+        shift: 18
+        buf_req: 18
+        next: parse_tcp.$split_0
+    parse_tcp.$split_0:  # from state ingress::parse_tcp.$split_0
+      0:
+        0..1: TH1  # ingress::hdr.tcp.urgent_ptr
+        shift: 2
+        buf_req: 2
+        next: end
+    parse_udp:  # from state ingress::parse_udp
+      0:
+        0..3: TW1
+            # - bit[0..15] -> TW1 bit[31..16]: ingress::hdr.udp.sport
+            # - bit[16..31] -> TW1 bit[15..0]: ingress::hdr.udp.dport
+        4..7: TW3
+            # - bit[32..47] -> TW3 bit[31..16]: ingress::hdr.udp.len
+            # - bit[48..63] -> TW3 bit[15..0]: ingress::hdr.udp.checksum
+        B4: 32  # value 1 -> B4 bit[5]: ingress::hdr.udp.$valid
+        shift: 8
+        buf_req: 8
+        next: end
+    parse_icmp:  # from state ingress::parse_icmp
+      0:
+        0..3: TW1
+            # - bit[0..7] -> TW1 bit[31..24]: ingress::hdr.icmp.icmp_type
+            # - bit[8..15] -> TW1 bit[23..16]: ingress::hdr.icmp.icmp_code
+            # - bit[16..31] -> TW1 bit[15..0]: ingress::hdr.icmp.checksum
+        4..7: TW3
+            # - bit[32..47] -> TW3 bit[31..16]: ingress::hdr.icmp.identifier
+            # - bit[48..63] -> TW3 bit[15..0]: ingress::hdr.icmp.sequence_number
+        8..9: TH4  # ingress::hdr.icmp.timestamp[63:48].48-63
+        10..11: TH3  # ingress::hdr.icmp.timestamp[47:32].32-47
+        12..13: TH2  # ingress::hdr.icmp.timestamp[31:16].16-31
+        14..15: TH1  # ingress::hdr.icmp.timestamp[15:0].0-15
+        B4: 64  # value 1 -> B4 bit[6]: ingress::hdr.icmp.$valid
+        shift: 16
+        buf_req: 16
+        next: end
+    $resubmit:  # from state ingress::$resubmit
+      0:
+        shift: 8
+        buf_req: 8
+        next: $skip_to_packet
+deparser ingress:
+  dictionary:
+    TB0: B4(0)  # ingress::compiler_generated_meta.^bridged_metadata.^bridged_metadata_indicator if ingress::compiler_generated_meta.^bridged_metadata.$valid
+    B2: B4(0)
+        # - bit[7..1]: ingress::compiler_generated_meta.^bridged_metadata.__pad_0 if ingress::compiler_generated_meta.^bridged_metadata.$valid
+        # - bit[0]: ingress::compiler_generated_meta.^bridged_metadata.^fields_md_is_controller_packet_out if ingress::compiler_generated_meta.^bridged_metadata.$valid
+    H3: B4(0)
+        # - bit[15..9]: ingress::compiler_generated_meta.^bridged_metadata.__pad_1 if ingress::compiler_generated_meta.^bridged_metadata.$valid
+        # - bit[8..0]: ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port if ingress::compiler_generated_meta.^bridged_metadata.$valid
+    W1: B4(2)  # ingress::hdr.ethernet.dst_addr.16-47 if ingress::hdr.ethernet.$valid
+    H4: B4(2)  # ingress::hdr.ethernet.dst_addr.0-15 if ingress::hdr.ethernet.$valid
+    W2: B4(2)  # ingress::hdr.ethernet.src_addr.16-47 if ingress::hdr.ethernet.$valid
+    W0: B4(2)
+        # - bit[31..16]: ingress::hdr.ethernet.src_addr.0-15 if ingress::hdr.ethernet.$valid
+        # - bit[15..0]: ingress::hdr.ethernet.eth_type if ingress::hdr.ethernet.$valid
+    TW0: B4(3)
+        # - bit[31..28]: ingress::hdr.ipv4.version if ingress::hdr.ipv4.$valid
+        # - bit[27..24]: ingress::hdr.ipv4.ihl if ingress::hdr.ipv4.$valid
+        # - bit[23..18]: ingress::hdr.ipv4.dscp if ingress::hdr.ipv4.$valid
+        # - bit[17..16]: ingress::hdr.ipv4.ecn if ingress::hdr.ipv4.$valid
+        # - bit[15..0]: ingress::hdr.ipv4.total_len if ingress::hdr.ipv4.$valid
+    TW2: B4(3)
+        # - bit[31..16]: ingress::hdr.ipv4.identification if ingress::hdr.ipv4.$valid
+        # - bit[15..13]: ingress::hdr.ipv4.flags if ingress::hdr.ipv4.$valid
+        # - bit[12..0]: ingress::hdr.ipv4.frag_offset if ingress::hdr.ipv4.$valid
+    TB1: B4(3)  # ingress::hdr.ipv4.ttl if ingress::hdr.ipv4.$valid
+    B3: B4(3)  # ingress::hdr.ipv4.protocol if ingress::hdr.ipv4.$valid
+    TH0: B4(3)  # ingress::hdr.ipv4.hdr_checksum if ingress::hdr.ipv4.$valid
+    W3: B4(3)  # ingress::hdr.ipv4.src_addr if ingress::hdr.ipv4.$valid
+    W4: B4(3)  # ingress::hdr.ipv4.dst_addr if ingress::hdr.ipv4.$valid
+    TW3: B4(4)
+        # - bit[31..16]: ingress::hdr.tcp.sport if ingress::hdr.tcp.$valid
+        # - bit[15..0]: ingress::hdr.tcp.dport if ingress::hdr.tcp.$valid
+    TH4: B4(4)  # ingress::hdr.tcp.seq_no.16-31 if ingress::hdr.tcp.$valid
+    TH3: B4(4)  # ingress::hdr.tcp.seq_no.0-15 if ingress::hdr.tcp.$valid
+    TH5: B4(4)  # ingress::hdr.tcp.ack_no.16-31 if ingress::hdr.tcp.$valid
+    TB3: B4(4)  # ingress::hdr.tcp.ack_no.8-15 if ingress::hdr.tcp.$valid
+    TB2: B4(4)  # ingress::hdr.tcp.ack_no.0-7 if ingress::hdr.tcp.$valid
+    TW1: B4(4)
+        # - bit[31..28]: ingress::hdr.tcp.data_offset if ingress::hdr.tcp.$valid
+        # - bit[27..25]: ingress::hdr.tcp.res if ingress::hdr.tcp.$valid
+        # - bit[24..22]: ingress::hdr.tcp.ecn if ingress::hdr.tcp.$valid
+        # - bit[21..16]: ingress::hdr.tcp.ctrl if ingress::hdr.tcp.$valid
+        # - bit[15..0]: ingress::hdr.tcp.window if ingress::hdr.tcp.$valid
+    TH2: B4(4)  # ingress::hdr.tcp.checksum if ingress::hdr.tcp.$valid
+    TH1: B4(4)  # ingress::hdr.tcp.urgent_ptr if ingress::hdr.tcp.$valid
+    TW1: B4(5)
+        # - bit[31..16]: ingress::hdr.udp.sport if ingress::hdr.udp.$valid
+        # - bit[15..0]: ingress::hdr.udp.dport if ingress::hdr.udp.$valid
+    TW3: B4(5)
+        # - bit[31..16]: ingress::hdr.udp.len if ingress::hdr.udp.$valid
+        # - bit[15..0]: ingress::hdr.udp.checksum if ingress::hdr.udp.$valid
+    TW1: B4(6)
+        # - bit[31..24]: ingress::hdr.icmp.icmp_type if ingress::hdr.icmp.$valid
+        # - bit[23..16]: ingress::hdr.icmp.icmp_code if ingress::hdr.icmp.$valid
+        # - bit[15..0]: ingress::hdr.icmp.checksum if ingress::hdr.icmp.$valid
+    TW3: B4(6)
+        # - bit[31..16]: ingress::hdr.icmp.identifier if ingress::hdr.icmp.$valid
+        # - bit[15..0]: ingress::hdr.icmp.sequence_number if ingress::hdr.icmp.$valid
+    TH4: B4(6)  # ingress::hdr.icmp.timestamp.48-63 if ingress::hdr.icmp.$valid
+    TH3: B4(6)  # ingress::hdr.icmp.timestamp.32-47 if ingress::hdr.icmp.$valid
+    TH2: B4(6)  # ingress::hdr.icmp.timestamp.16-31 if ingress::hdr.icmp.$valid
+    TH1: B4(6)  # ingress::hdr.icmp.timestamp.0-15 if ingress::hdr.icmp.$valid
+  egress_unicast_port: H1(0..8)  # bit[8..0]: ingress::ig_intr_md_for_tm.ucast_egress_port
+  drop_ctl: B1(0..2)  # bit[2..0]: ingress::ig_intr_md_for_dprsr.drop_ctl
+  mirror:
+    select: B0(0..2)  # bit[2..0]: ingress::ig_intr_md_for_dprsr.mirror_type
+    0:
+      - H2(0..9)  # bit[9..0]: ingress::compiler_generated_meta.mirror_id
+parser egress:
+  start: $entry_point
+  init_zero: [ B16, B18, B17 ]
+  multi_write: [ TH6, TH7, TH8, TH9, TH10, TH11, TW4, TW5, TW6, TW9, TW10, TW11, B17, B18 ]
+  hdr_len_adj: 27
+  meta_opt: 8191
+  states:
+    $entry_point:  # from state $entry_point
+      0:
+        0..1: H16  # bit[7..15] -> H16 bit[8..0]: egress::eg_intr_md.egress_port
+        save: { byte1 : 27, half : 26..27 }
+        shift: 27
+        buf_req: 28
+        next: $check_mirrored
+    $check_mirrored:  # from state egress::$check_mirrored
+      match: [ byte1 ]
+      # - match byte[0]: packet.lookahead
+      0b****0***:
+        buf_req: 0
+        next: $bridged_metadata
+      0b****1***:
+        buf_req: 0
+        next: $mirrored
+    $bridged_metadata:  # from state egress::$bridged_metadata
+      0:
+        1: B18  # bit[15] -> B18 bit[0]: egress::fabric_metadata.is_controller_packet_out
+        2..3: H17  # bit[23..31] -> H17 bit[8..0]: egress::ig_intr_md.ingress_port
+        save: { half : 2..3 }
+        shift: 4
+        buf_req: 4
+        next: start
+    start:  # from state egress::start
+      match: [ half ]
+      # - match byte[-2..-1]: ig_intr_md.ingress_port
+      0b*******011000000:
+        buf_req: 0
+        next: parse_packet_out
+      0x****:
+        buf_req: 0
+        next: parse_ethernet
+    parse_packet_out:  # from state egress::parse_packet_out
+      0:
+        buf_req: 0
+        next: parse_ethernet
+    parse_ethernet:  # from state egress::parse_ethernet
+      0:
+        0: TB7  # egress::hdr.ethernet.dst_addr[47:40].40-47
+        1: TB6  # egress::hdr.ethernet.dst_addr[39:32].32-39
+        2: TB5  # egress::hdr.ethernet.dst_addr[31:24].24-31
+        3: TB4  # egress::hdr.ethernet.dst_addr[23:16].16-23
+        4..5: TH14  # egress::hdr.ethernet.dst_addr[15:0].0-15
+        6..9: TW8  # egress::hdr.ethernet.src_addr[47:16].16-47
+        10..13: TW7
+            # - bit[80..95] -> TW7 bit[31..16]: egress::hdr.ethernet.src_addr[15:0].0-15
+            # - bit[96..111] -> TW7 bit[15..0]: egress::hdr.ethernet.eth_type
+        save: { half : 12..13 }
+        shift: 14
+        buf_req: 14
+        next: parse_ethernet.$split_0
+    parse_ethernet.$split_0:  # from state egress::parse_ethernet.$split_0
+      match: [ half ]
+      # - match byte[-2..-1]: hdr.ethernet.eth_type
+      0x0800:
+        B17: 1  # value 1 -> B17 bit[0]: egress::hdr.ethernet.$valid
+        save: { byte1 : 9 }
+        buf_req: 10
+        next: parse_ipv4
+      0x****:
+        B17: 1  # value 1 -> B17 bit[0]: egress::hdr.ethernet.$valid
+        buf_req: 0
+        next: end
+    parse_ipv4:  # from state egress::parse_ipv4
+      match: [ byte1 ]
+      # - match byte[9]: hdr.ipv4.protocol
+      0x06:
+        0..3: TW4
+            # - bit[0..3] -> TW4 bit[31..28]: egress::hdr.ipv4.version
+            # - bit[4..7] -> TW4 bit[27..24]: egress::hdr.ipv4.ihl
+            # - bit[8..13] -> TW4 bit[23..18]: egress::hdr.ipv4.dscp
+            # - bit[14..15] -> TW4 bit[17..16]: egress::hdr.ipv4.ecn
+            # - bit[16..31] -> TW4 bit[15..0]: egress::hdr.ipv4.total_len
+        4..7: TW6
+            # - bit[32..47] -> TW6 bit[31..16]: egress::hdr.ipv4.identification
+            # - bit[48..50] -> TW6 bit[15..13]: egress::hdr.ipv4.flags
+            # - bit[51..63] -> TW6 bit[12..0]: egress::hdr.ipv4.frag_offset
+        8..9: TH6
+            # - bit[64..71] -> TH6 bit[15..8]: egress::hdr.ipv4.ttl
+            # - bit[72..79] -> TH6 bit[7..0]: egress::hdr.ipv4.protocol
+        10..11: TH7  # egress::hdr.ipv4.hdr_checksum
+        12..15: TW9  # egress::hdr.ipv4.src_addr
+        16..19: TW10  # egress::hdr.ipv4.dst_addr
+        B17: 2  # value 1 -> B17 bit[1]: egress::hdr.ipv4.$valid
+        shift: 20
+        buf_req: 20
+        next: parse_tcp
+      0x11:
+        0..3: TW4
+            # - bit[0..3] -> TW4 bit[31..28]: egress::hdr.ipv4.version
+            # - bit[4..7] -> TW4 bit[27..24]: egress::hdr.ipv4.ihl
+            # - bit[8..13] -> TW4 bit[23..18]: egress::hdr.ipv4.dscp
+            # - bit[14..15] -> TW4 bit[17..16]: egress::hdr.ipv4.ecn
+            # - bit[16..31] -> TW4 bit[15..0]: egress::hdr.ipv4.total_len
+        4..7: TW6
+            # - bit[32..47] -> TW6 bit[31..16]: egress::hdr.ipv4.identification
+            # - bit[48..50] -> TW6 bit[15..13]: egress::hdr.ipv4.flags
+            # - bit[51..63] -> TW6 bit[12..0]: egress::hdr.ipv4.frag_offset
+        8..9: TH6
+            # - bit[64..71] -> TH6 bit[15..8]: egress::hdr.ipv4.ttl
+            # - bit[72..79] -> TH6 bit[7..0]: egress::hdr.ipv4.protocol
+        10..11: TH7  # egress::hdr.ipv4.hdr_checksum
+        12..15: TW9  # egress::hdr.ipv4.src_addr
+        16..19: TW10  # egress::hdr.ipv4.dst_addr
+        B17: 2  # value 1 -> B17 bit[1]: egress::hdr.ipv4.$valid
+        shift: 20
+        buf_req: 20
+        next: parse_udp
+      0x01:
+        0..3: TW4
+            # - bit[0..3] -> TW4 bit[31..28]: egress::hdr.ipv4.version
+            # - bit[4..7] -> TW4 bit[27..24]: egress::hdr.ipv4.ihl
+            # - bit[8..13] -> TW4 bit[23..18]: egress::hdr.ipv4.dscp
+            # - bit[14..15] -> TW4 bit[17..16]: egress::hdr.ipv4.ecn
+            # - bit[16..31] -> TW4 bit[15..0]: egress::hdr.ipv4.total_len
+        4..7: TW6
+            # - bit[32..47] -> TW6 bit[31..16]: egress::hdr.ipv4.identification
+            # - bit[48..50] -> TW6 bit[15..13]: egress::hdr.ipv4.flags
+            # - bit[51..63] -> TW6 bit[12..0]: egress::hdr.ipv4.frag_offset
+        8..9: TH6
+            # - bit[64..71] -> TH6 bit[15..8]: egress::hdr.ipv4.ttl
+            # - bit[72..79] -> TH6 bit[7..0]: egress::hdr.ipv4.protocol
+        10..11: TH7  # egress::hdr.ipv4.hdr_checksum
+        12..15: TW9  # egress::hdr.ipv4.src_addr
+        16..19: TW10  # egress::hdr.ipv4.dst_addr
+        B17: 2  # value 1 -> B17 bit[1]: egress::hdr.ipv4.$valid
+        shift: 20
+        buf_req: 20
+        next: parse_icmp
+      0x**:
+        0..3: TW4
+            # - bit[0..3] -> TW4 bit[31..28]: egress::hdr.ipv4.version
+            # - bit[4..7] -> TW4 bit[27..24]: egress::hdr.ipv4.ihl
+            # - bit[8..13] -> TW4 bit[23..18]: egress::hdr.ipv4.dscp
+            # - bit[14..15] -> TW4 bit[17..16]: egress::hdr.ipv4.ecn
+            # - bit[16..31] -> TW4 bit[15..0]: egress::hdr.ipv4.total_len
+        4..7: TW6
+            # - bit[32..47] -> TW6 bit[31..16]: egress::hdr.ipv4.identification
+            # - bit[48..50] -> TW6 bit[15..13]: egress::hdr.ipv4.flags
+            # - bit[51..63] -> TW6 bit[12..0]: egress::hdr.ipv4.frag_offset
+        8..9: TH6
+            # - bit[64..71] -> TH6 bit[15..8]: egress::hdr.ipv4.ttl
+            # - bit[72..79] -> TH6 bit[7..0]: egress::hdr.ipv4.protocol
+        10..11: TH7  # egress::hdr.ipv4.hdr_checksum
+        12..15: TW9  # egress::hdr.ipv4.src_addr
+        16..19: TW10  # egress::hdr.ipv4.dst_addr
+        B17: 2  # value 1 -> B17 bit[1]: egress::hdr.ipv4.$valid
+        shift: 20
+        buf_req: 20
+        next: end
+    parse_tcp:  # from state egress::parse_tcp
+      0:
+        0..1: TH9  # egress::hdr.tcp.sport
+        2..3: TH8  # egress::hdr.tcp.dport
+        4..7: TW11  # egress::hdr.tcp.seq_no
+        8..9: TH13  # egress::hdr.tcp.ack_no[31:16].16-31
+        10..11: TH12  # egress::hdr.tcp.ack_no[15:0].0-15
+        12..15: TW5
+            # - bit[96..99] -> TW5 bit[31..28]: egress::hdr.tcp.data_offset
+            # - bit[100..102] -> TW5 bit[27..25]: egress::hdr.tcp.res
+            # - bit[103..105] -> TW5 bit[24..22]: egress::hdr.tcp.ecn
+            # - bit[106..111] -> TW5 bit[21..16]: egress::hdr.tcp.ctrl
+            # - bit[112..127] -> TW5 bit[15..0]: egress::hdr.tcp.window
+        B17: 4  # value 1 -> B17 bit[2]: egress::hdr.tcp.$valid
+        shift: 16
+        buf_req: 16
+        next: parse_tcp.$split_0
+    parse_tcp.$split_0:  # from state egress::parse_tcp.$split_0
+      0:
+        0..1: TH11  # egress::hdr.tcp.checksum
+        2..3: TH10  # egress::hdr.tcp.urgent_ptr
+        shift: 4
+        buf_req: 4
+        next: end
+    parse_udp:  # from state egress::parse_udp
+      0:
+        0..3: TW5
+            # - bit[0..15] -> TW5 bit[31..16]: egress::hdr.udp.sport
+            # - bit[16..31] -> TW5 bit[15..0]: egress::hdr.udp.dport
+        4..5: TH9  # egress::hdr.udp.len
+        6..7: TH8  # egress::hdr.udp.checksum
+        B17: 8  # value 1 -> B17 bit[3]: egress::hdr.udp.$valid
+        shift: 8
+        buf_req: 8
+        next: end
+    parse_icmp:  # from state egress::parse_icmp
+      0:
+        0..3: TW5
+            # - bit[0..7] -> TW5 bit[31..24]: egress::hdr.icmp.icmp_type
+            # - bit[8..15] -> TW5 bit[23..16]: egress::hdr.icmp.icmp_code
+            # - bit[16..31] -> TW5 bit[15..0]: egress::hdr.icmp.checksum
+        4..5: TH9  # egress::hdr.icmp.identifier
+        6..7: TH8  # egress::hdr.icmp.sequence_number
+        8..9: TH11  # egress::hdr.icmp.timestamp[63:48].48-63
+        10..11: TH10  # egress::hdr.icmp.timestamp[47:32].32-47
+        12..15: TW11  # egress::hdr.icmp.timestamp[31:0].0-31
+        B17: 16  # value 1 -> B17 bit[4]: egress::hdr.icmp.$valid
+        shift: 16
+        buf_req: 16
+        next: end
+    $mirrored:  # from state egress::$mirrored
+      0:
+        shift: 1
+        buf_req: 1
+        next: start
+deparser egress:
+  dictionary:
+    H18: B17(5)
+        # - bit[15..7]: egress::hdr.packet_in.ingress_port if egress::hdr.packet_in.$valid
+        # - bit[6..0]: egress::hdr.packet_in._pad if egress::hdr.packet_in.$valid
+    TB7: B17(0)  # egress::hdr.ethernet.dst_addr.40-47 if egress::hdr.ethernet.$valid
+    TB6: B17(0)  # egress::hdr.ethernet.dst_addr.32-39 if egress::hdr.ethernet.$valid
+    TB5: B17(0)  # egress::hdr.ethernet.dst_addr.24-31 if egress::hdr.ethernet.$valid
+    TB4: B17(0)  # egress::hdr.ethernet.dst_addr.16-23 if egress::hdr.ethernet.$valid
+    TH14: B17(0)  # egress::hdr.ethernet.dst_addr.0-15 if egress::hdr.ethernet.$valid
+    TW8: B17(0)  # egress::hdr.ethernet.src_addr.16-47 if egress::hdr.ethernet.$valid
+    TW7: B17(0)
+        # - bit[31..16]: egress::hdr.ethernet.src_addr.0-15 if egress::hdr.ethernet.$valid
+        # - bit[15..0]: egress::hdr.ethernet.eth_type if egress::hdr.ethernet.$valid
+    TW4: B17(1)
+        # - bit[31..28]: egress::hdr.ipv4.version if egress::hdr.ipv4.$valid
+        # - bit[27..24]: egress::hdr.ipv4.ihl if egress::hdr.ipv4.$valid
+        # - bit[23..18]: egress::hdr.ipv4.dscp if egress::hdr.ipv4.$valid
+        # - bit[17..16]: egress::hdr.ipv4.ecn if egress::hdr.ipv4.$valid
+        # - bit[15..0]: egress::hdr.ipv4.total_len if egress::hdr.ipv4.$valid
+    TW6: B17(1)
+        # - bit[31..16]: egress::hdr.ipv4.identification if egress::hdr.ipv4.$valid
+        # - bit[15..13]: egress::hdr.ipv4.flags if egress::hdr.ipv4.$valid
+        # - bit[12..0]: egress::hdr.ipv4.frag_offset if egress::hdr.ipv4.$valid
+    TH6: B17(1)
+        # - bit[15..8]: egress::hdr.ipv4.ttl if egress::hdr.ipv4.$valid
+        # - bit[7..0]: egress::hdr.ipv4.protocol if egress::hdr.ipv4.$valid
+    checksum 0: B17(1)  # egress::hdr.ipv4.$valid
+    TW9: B17(1)  # egress::hdr.ipv4.src_addr if egress::hdr.ipv4.$valid
+    TW10: B17(1)  # egress::hdr.ipv4.dst_addr if egress::hdr.ipv4.$valid
+    TH9: B17(2)  # egress::hdr.tcp.sport if egress::hdr.tcp.$valid
+    TH8: B17(2)  # egress::hdr.tcp.dport if egress::hdr.tcp.$valid
+    TW11: B17(2)  # egress::hdr.tcp.seq_no if egress::hdr.tcp.$valid
+    TH13: B17(2)  # egress::hdr.tcp.ack_no.16-31 if egress::hdr.tcp.$valid
+    TH12: B17(2)  # egress::hdr.tcp.ack_no.0-15 if egress::hdr.tcp.$valid
+    TW5: B17(2)
+        # - bit[31..28]: egress::hdr.tcp.data_offset if egress::hdr.tcp.$valid
+        # - bit[27..25]: egress::hdr.tcp.res if egress::hdr.tcp.$valid
+        # - bit[24..22]: egress::hdr.tcp.ecn if egress::hdr.tcp.$valid
+        # - bit[21..16]: egress::hdr.tcp.ctrl if egress::hdr.tcp.$valid
+        # - bit[15..0]: egress::hdr.tcp.window if egress::hdr.tcp.$valid
+    TH11: B17(2)  # egress::hdr.tcp.checksum if egress::hdr.tcp.$valid
+    TH10: B17(2)  # egress::hdr.tcp.urgent_ptr if egress::hdr.tcp.$valid
+    TW5: B17(3)
+        # - bit[31..16]: egress::hdr.udp.sport if egress::hdr.udp.$valid
+        # - bit[15..0]: egress::hdr.udp.dport if egress::hdr.udp.$valid
+    TH9: B17(3)  # egress::hdr.udp.len if egress::hdr.udp.$valid
+    TH8: B17(3)  # egress::hdr.udp.checksum if egress::hdr.udp.$valid
+    TW5: B17(4)
+        # - bit[31..24]: egress::hdr.icmp.icmp_type if egress::hdr.icmp.$valid
+        # - bit[23..16]: egress::hdr.icmp.icmp_code if egress::hdr.icmp.$valid
+        # - bit[15..0]: egress::hdr.icmp.checksum if egress::hdr.icmp.$valid
+    TH9: B17(4)  # egress::hdr.icmp.identifier if egress::hdr.icmp.$valid
+    TH8: B17(4)  # egress::hdr.icmp.sequence_number if egress::hdr.icmp.$valid
+    TH11: B17(4)  # egress::hdr.icmp.timestamp.48-63 if egress::hdr.icmp.$valid
+    TH10: B17(4)  # egress::hdr.icmp.timestamp.32-47 if egress::hdr.icmp.$valid
+    TW11: B17(4)  # egress::hdr.icmp.timestamp.0-31 if egress::hdr.icmp.$valid
+  checksum 0:
+    - TW4: { }
+        # - bit[31..28]: egress::hdr.ipv4.version
+        # - bit[27..24]: egress::hdr.ipv4.ihl
+        # - bit[23..18]: egress::hdr.ipv4.dscp
+        # - bit[17..16]: egress::hdr.ipv4.ecn
+        # - bit[15..0]: egress::hdr.ipv4.total_len
+    - TW6: { }
+        # - bit[31..16]: egress::hdr.ipv4.identification
+        # - bit[15..13]: egress::hdr.ipv4.flags
+        # - bit[12..0]: egress::hdr.ipv4.frag_offset
+    - TH6: { }
+        # - bit[15..8]: egress::hdr.ipv4.ttl
+        # - bit[7..0]: egress::hdr.ipv4.protocol
+    - TW9: { }  # egress::hdr.ipv4.src_addr
+    - TW10: { }  # egress::hdr.ipv4.dst_addr
+  drop_ctl: B16(0..2)  # bit[2..0]: egress::eg_intr_md_for_dprsr.drop_ctl
+  egress_unicast_port: H16(0..8)  # bit[8..0]: egress::eg_intr_md.egress_port
+stage 0 ingress:
+  hash_action tbl_act 0:
+    p4: { name: tbl_act }
+    row: 1
+    bus: 1
+    gateway:
+      name: cond-1
+      input_xbar:
+        exact group 0: { 1: hdr.packet_out.$valid }
+      row: 1
+      bus: 1
+      unit: 1
+      payload: 0x1
+      format: { action: 0..0 }
+      match: { 1: hdr.packet_out.$valid }
+      0b******1: END
+      miss: run_table
+      condition: 
+        expression: "(hdr.packet_out.$valid == 1)"
+        true: END
+        false: tbl_act_3
+    next: tbl_act_3
+    instruction: tbl_act(action, $DEFAULT)
+    actions:
+      act(1, 1):
+      - default_action: { allowed: true }
+      - handle: 0x20000001
+      - next_table: 0
+      - set ig_intr_md_for_tm.ucast_egress_port, hdr.packet_out.egress_port
+      - set fabric_metadata.is_controller_packet_out, 1
+    default_action: act
+  hash_action tbl_act_3 5:
+    p4: { name: tbl_act_3 }
+    row: 2
+    bus: 0
+    gateway:
+      name: tbl_act_3-gateway
+      row: 2
+      bus: 0
+      unit: 1
+      0x0: tbl_act_2
+      miss: tbl_act_2
+      condition: 
+        expression: "true(always hit)"
+        true: tbl_act_2
+        false: tbl_act_2
+    hit: [ tbl_act_2 ]
+    miss: tbl_act_2
+    instruction: tbl_act_3($DEFAULT, $DEFAULT)
+    actions:
+      act_3(0, 0):
+      - default_action: { allowed: true }
+      - handle: 0x20000008
+      - next_table: 0
+    default_action: act_3
+  hash_action tbl_act_2 6:
+    p4: { name: tbl_act_2 }
+    row: 0
+    bus: 0
+    hash_dist:
+      0: { hash: 0, mask: 0x1ff, shift: 2 }
+    input_xbar:
+      exact group 0: { 40: ig_intr_md.ingress_port(8), 48: ig_intr_md.ingress_port(0..7) }
+      hash 0:
+        8..8: stripe(ig_intr_md.ingress_port(8))
+        0..7: stripe(ig_intr_md.ingress_port(0..7))
+      hash group 0:
+        table: [0]
+        seed: 0x0
+    gateway:
+      name: cond-3
+      input_xbar:
+        exact group 0: { 67: ig_intr_md.ingress_port(3..8) }
+        hash 1:
+          44..45: ig_intr_md.ingress_port(7..8)
+          40..43: ig_intr_md.ingress_port(3..6)
+        hash group 1:
+          table: [1]
+          seed: 0x0
+      row: 0
+      bus: 0
+      unit: 0
+      payload: 0x3
+      format: { action: 0..0, counter_pfe: 1..1 }
+      match: { 36: ig_intr_md.ingress_port(7..8), 32: ig_intr_md.ingress_port(3..6) }
+      range: 4
+      ? [ 0x1111, 0xffff, 0 ] : tbl_act_0
+      ? [ 0x2222, 0x1ff, 0 ] : tbl_act_0
+      miss: run_table
+      condition: 
+        expression: "(compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port < 200)"
+        true: tbl_act_0
+        false: tbl_act_0
+    next: tbl_act_0
+    stats: tbl_act_2$stats.FabricIngress.port_counters_control.ingress_port_counter(hash_dist 0, counter_pfe)
+    instruction: tbl_act_2(action, $DEFAULT)
+    actions:
+      act_2(1, 0):
+      - default_action: { allowed: true }
+      - handle: 0x20000007
+      - next_table: 0
+      - tbl_act_2$stats.FabricIngress.port_counters_control.ingress_port_counter($hash_dist)
+    default_action: act_2
+  counter tbl_act_2$stats.FabricIngress.port_counters_control.ingress_port_counter:
+    p4: { name: FabricIngress.port_counters_control.ingress_port_counter, size: 200 }
+    row: 13
+    column: [ 0, 1 ]
+    maprams: [ 0, 1 ]
+    count: packets_and_bytes
+    format: {packets(0): 64..91, bytes(0): 92..127, packets(1): 0..27, bytes(1): 28..63}
+  hash_action tbl_act_0 7:
+    p4: { name: tbl_act_0 }
+    row: 3
+    bus: 0
+    hash_dist:
+      1: { hash: 0, mask: 0x1ff, shift: 2 }
+    input_xbar:
+      exact group 0: { 40: ig_intr_md.ingress_port(8), 48: ig_intr_md.ingress_port(0..7) }
+      hash 0:
+        24..24: stripe(ig_intr_md.ingress_port(8))
+        16..23: stripe(ig_intr_md.ingress_port(0..7))
+      hash group 0:
+        table: [0]
+        seed: 0x0
+    gateway:
+      name: tbl_act_0-gateway
+      row: 3
+      bus: 0
+      unit: 1
+      0x0: acl_acl
+      miss: acl_acl
+      condition: 
+        expression: "true(always hit)"
+        true: acl_acl
+        false: acl_acl
+    hit: [ acl_acl ]
+    miss: acl_acl
+    stats: tbl_act_0$stats.FabricIngress.acl.acl_port_counter(hash_dist 1, $DEFAULT)
+    instruction: tbl_act_0($DEFAULT, $DEFAULT)
+    actions:
+      act_0(0, 0):
+      - default_action: { allowed: true }
+      - handle: 0x20000002
+      - next_table: 0
+      - tbl_act_0$stats.FabricIngress.acl.acl_port_counter($hash_dist)
+    default_action: act_0
+  counter tbl_act_0$stats.FabricIngress.acl.acl_port_counter:
+    p4: { name: FabricIngress.acl.acl_port_counter, size: 132 }
+    row: 9
+    column: [ 0, 1 ]
+    maprams: [ 0, 1 ]
+    count: packets
+    format: {packets(0): 64..127, packets(1): 0..63}
+stage 1 ingress:
+  ternary_match acl_acl 0:
+    p4: { name: FabricIngress.acl.acl, size: 1024 }
+    p4_param_order: 
+      ig_intr_md.ingress_port: { type: ternary, size: 9, full_size: 9, key_name: "standard_metadata.ingress_port" }
+      hdr.ethernet.src_addr: { type: ternary, size: 48, full_size: 48 }
+      hdr.ethernet.dst_addr: { type: ternary, size: 48, full_size: 48 }
+      hdr.ethernet.eth_type: { type: ternary, size: 16, full_size: 16 }
+      hdr.ipv4.src_addr: { type: ternary, size: 32, full_size: 32 }
+      hdr.ipv4.dst_addr: { type: ternary, size: 32, full_size: 32 }
+      hdr.ipv4.protocol: { type: ternary, size: 8, full_size: 8 }
+    row: [ 0, 1, 2, 3, 4, 9, 8, 7, 6, 5 ]
+    bus: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+    column:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    input_xbar:
+      ternary group 0: { 0: hdr.ethernet.dst_addr.16-47(0..7), 8: hdr.ethernet.eth_type(8..15), 16: hdr.ethernet.src_addr.0-15, 32: hdr.ethernet.src_addr.16-47(0..7) }
+      ternary group 1: { 0: hdr.ethernet.dst_addr.16-47(16..31), 16: hdr.ipv4.src_addr(0..7), 24: hdr.ethernet.dst_addr.16-47(8..15), 32: hdr.ethernet.src_addr.16-47(16..23) }
+      ternary group 2: { 0: hdr.ethernet.src_addr.16-47(24..31), 8: hdr.ipv4.dst_addr(0..7), 16: hdr.ethernet.src_addr.16-47(8..15), 24: hdr.ipv4.src_addr(16..31) }
+      ternary group 3: { 0: hdr.ipv4.src_addr(8..15), 8: hdr.ipv4.dst_addr(16..31), 24: ig_intr_md.ingress_port(0..7), 32: hdr.ipv4.dst_addr(8..15) }
+      ternary group 4: { 0: hdr.ethernet.dst_addr.0-15, 16: hdr.ipv4.protocol }
+      byte group 0: { 0: ig_intr_md.ingress_port(8) }
+      byte group 1: { 0: hdr.ethernet.eth_type(0..7) }
+    match:
+    - { group: 0, byte_group: 1, byte_config: 0, dirtcam: 0x555 }
+    - { group: 1, byte_group: 1, byte_config: 1, dirtcam: 0x555 }
+    - { group: 2, byte_group: 0, byte_config: 0, dirtcam: 0x555 }
+    - { group: 3, byte_config: 3, dirtcam: 0x155 }
+    - { group: 4, dirtcam: 0x15 }
+    hit: [ tbl_act_1 ]
+    miss: tbl_act_1
+    indirect: acl_acl$tind
+  counter acl_acl$stats.FabricIngress.acl.acl_counter:
+    p4: { name: FabricIngress.acl.acl_counter }
+    row: 13
+    column: [ 0, 1 ]
+    maprams: [ 0, 1 ]
+    count: packets_and_bytes
+    format: {packets(0): 64..91, bytes(0): 92..127, packets(1): 0..27, bytes(1): 28..63}
+  ternary_indirect acl_acl$tind:
+    row: 0
+    bus: 0
+    column: 2
+    input_xbar:
+      ternary group 0: { 0: hdr.ethernet.dst_addr.16-47(0..7), 8: hdr.ethernet.eth_type(8..15), 16: hdr.ethernet.src_addr.0-15, 32: hdr.ethernet.src_addr.16-47(0..7) }
+      ternary group 1: { 0: hdr.ethernet.dst_addr.16-47(16..31), 16: hdr.ipv4.src_addr(0..7), 24: hdr.ethernet.dst_addr.16-47(8..15), 32: hdr.ethernet.src_addr.16-47(16..23) }
+      ternary group 2: { 0: hdr.ethernet.src_addr.16-47(24..31), 8: hdr.ipv4.dst_addr(0..7), 16: hdr.ethernet.src_addr.16-47(8..15), 24: hdr.ipv4.src_addr(16..31) }
+      ternary group 3: { 0: hdr.ipv4.src_addr(8..15), 8: hdr.ipv4.dst_addr(16..31), 24: ig_intr_md.ingress_port(0..7), 32: hdr.ipv4.dst_addr(8..15) }
+      ternary group 4: { 0: hdr.ethernet.dst_addr.0-15, 16: hdr.ipv4.protocol }
+      byte group 0: { 0: ig_intr_md.ingress_port(8) }
+      byte group 1: { 0: hdr.ethernet.eth_type(0..7) }
+    format: { action: 0..1, immediate: 2..10 }
+    action_bus: { 32..33 : immediate(0..8) }
+    stats: acl_acl$stats.FabricIngress.acl.acl_counter($DIRECT, $DEFAULT)
+    instruction: acl_acl$tind(action, $DEFAULT)
+    actions:
+      FabricIngress.acl.output(0, 1):
+      - p4_param_order: {port_num: 9 }
+      - default_action: { allowed: false, reason: has_const_default }
+      - handle: 0x20000003
+      - next_table: 0
+      - { port_num: immediate(0..8) }
+      - set ig_intr_md_for_tm.ucast_egress_port, port_num
+      - acl_acl$stats.FabricIngress.acl.acl_counter($DIRECT)
+      FabricIngress.acl.punt_to_cpu(1, 2):
+      - default_action: { allowed: false, reason: has_const_default }
+      - handle: 0x20000004
+      - next_table: 0
+      - { $constant0: immediate(0..8), $constant0: 192 }
+      - set ig_intr_md_for_tm.ucast_egress_port, $constant0
+      - acl_acl$stats.FabricIngress.acl.acl_counter($DIRECT)
+      FabricIngress.acl.drop(2, 3):
+      - default_action: { allowed: true }
+      - handle: 0x20000005
+      - next_table: 0
+      - {  }
+      - set ig_intr_md_for_dprsr.drop_ctl, 1
+      - acl_acl$stats.FabricIngress.acl.acl_counter($DIRECT)
+    default_action: FabricIngress.acl.drop
+stage 2 ingress:
+  hash_action tbl_act_1 0:
+    p4: { name: tbl_act_1 }
+    row: 0
+    bus: 0
+    hash_dist:
+      0: { hash: 0, mask: 0x1ff, shift: 2 }
+    input_xbar:
+      exact group 0: { 0: ig_intr_md_for_tm.ucast_egress_port }
+      hash 0:
+        0..8: stripe(ig_intr_md_for_tm.ucast_egress_port)
+      hash group 0:
+        table: [0]
+        seed: 0x0
+    gateway:
+      name: cond-2
+      input_xbar:
+        exact group 0: { 67: ig_intr_md_for_tm.ucast_egress_port(3..8) }
+        hash 1:
+          44..45: ig_intr_md_for_tm.ucast_egress_port(7..8)
+          40..43: ig_intr_md_for_tm.ucast_egress_port(3..6)
+        hash group 1:
+          table: [1]
+          seed: 0x0
+      row: 0
+      bus: 0
+      unit: 0
+      payload: 0x3
+      format: { action: 0..0, counter_pfe: 1..1 }
+      match: { 36: ig_intr_md_for_tm.ucast_egress_port(7..8), 32: ig_intr_md_for_tm.ucast_egress_port(3..6) }
+      range: 4
+      ? [ 0x1111, 0xffff, 0 ] : END
+      ? [ 0x2222, 0x1ff, 0 ] : END
+      miss: run_table
+      condition: 
+        expression: "(ig_intr_md_for_tm.ucast_egress_port < 200)"
+        true: END
+        false: END
+    next: END
+    stats: tbl_act_1$stats.FabricIngress.port_counters_control.egress_port_counter(hash_dist 0, counter_pfe)
+    instruction: tbl_act_1(action, $DEFAULT)
+    actions:
+      act_1(1, 0):
+      - default_action: { allowed: true }
+      - handle: 0x20000006
+      - next_table: 0
+      - tbl_act_1$stats.FabricIngress.port_counters_control.egress_port_counter($hash_dist)
+    default_action: act_1
+  counter tbl_act_1$stats.FabricIngress.port_counters_control.egress_port_counter:
+    p4: { name: FabricIngress.port_counters_control.egress_port_counter, size: 200 }
+    row: 13
+    column: [ 0, 1 ]
+    maprams: [ 0, 1 ]
+    count: packets_and_bytes
+    format: {packets(0): 64..91, bytes(0): 92..127, packets(1): 0..27, bytes(1): 28..63}
+stage 0 egress:
+  hash_action tbl_act_4 1:
+    p4: { name: tbl_act_4 }
+    row: 1
+    bus: 0
+    gateway:
+      name: cond-4
+      input_xbar:
+        exact group 0: { 8: fabric_metadata.is_controller_packet_out }
+      row: 1
+      bus: 0
+      unit: 0
+      payload: 0x1
+      format: { action: 0..0 }
+      match: { 0: fabric_metadata.is_controller_packet_out }
+      0b*******1: END
+      miss: run_table
+      condition: 
+        expression: "(fabric_metadata.is_controller_packet_out == 1)"
+        true: END
+        false: cond-5
+    next: cond-5
+    instruction: tbl_act_4(action, $DEFAULT)
+    actions:
+      act_4(1, 0):
+      - default_action: { allowed: true }
+      - handle: 0x20000009
+      - next_table: 0
+    default_action: act_4
+  gateway cond-5 2:
+    name: cond-5
+    input_xbar:
+      exact group 0: { 16: eg_intr_md.egress_port }
+    row: 2
+    bus: 0
+    unit: 0
+    match: { 0: eg_intr_md.egress_port(0..7), 8: eg_intr_md.egress_port(8) }
+    0b*******011000000: tbl_act_5
+    miss: END
+    condition: 
+      expression: "(eg_intr_md.egress_port == 192)"
+      true: tbl_act_5
+      false: END
+  hash_action tbl_act_5 3:
+    p4: { name: tbl_act_5 }
+    row: 0
+    bus: 1
+    gateway:
+      name: cond-6
+      input_xbar:
+        exact group 0: { 35: fabric_metadata.is_multicast, 36: fabric_metadata.clone_to_cpu }
+      row: 0
+      bus: 1
+      unit: 1
+      payload: 0x1
+      format: { action: 0..0 }
+      match: { 3: fabric_metadata.is_multicast, 12: fabric_metadata.clone_to_cpu }
+      0b***0********1: tbl_act_6
+      miss: run_table
+      condition: 
+        expression: "(fabric_metadata.is_multicast == 1 && fabric_metadata.clone_to_cpu == 0)"
+        true: tbl_act_6
+        false: tbl_act_6
+    next: tbl_act_6
+    instruction: tbl_act_5(action, $DEFAULT)
+    actions:
+      act_5(1, 1):
+      - default_action: { allowed: true }
+      - handle: 0x2000000a
+      - next_table: 0
+      - set eg_intr_md_for_dprsr.drop_ctl, 1
+    default_action: act_5
+  hash_action tbl_act_6 4:
+    p4: { name: tbl_act_6 }
+    row: 2
+    bus: 1
+    gateway:
+      name: tbl_act_6-gateway
+      row: 3
+      bus: 0
+      unit: 0
+      0x0: END
+      miss: END
+      condition: 
+        expression: "true(always hit)"
+        true: END
+        false: END
+    hit: [ END ]
+    miss: END
+    instruction: tbl_act_6($DEFAULT, $DEFAULT)
+    actions:
+      act_6(0, 2):
+      - default_action: { allowed: true }
+      - handle: 0x2000000b
+      - next_table: 0
+      - set hdr.packet_in.$valid, 1
+      - set hdr.packet_in.ingress_port, ig_intr_md.ingress_port
+    default_action: act_6
+primitives: "/root/fwd/p4c-out/fwd/tofino/montara/pipe//fabric.prim.json"
+dynhash: "/root/fwd/p4c-out/fwd/tofino/montara/pipe//fabric.dynhash.json"

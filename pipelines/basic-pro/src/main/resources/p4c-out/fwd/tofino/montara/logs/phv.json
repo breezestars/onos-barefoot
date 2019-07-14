@@ -1,0 +1,4315 @@
+{
+    "build_date": "Thu Jul 11 10:30:28 2019",
+    "compiler_version": "8.9.0",
+    "containers": [
+        {
+            "bit_width": 8,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 288,
+            "records": [
+                {
+                    "field_class": "bridged",
+                    "field_lsb": 0,
+                    "field_msb": 7,
+                    "field_name": "ingress::compiler_generated_meta.^bridged_metadata.^bridged_metadata_indicator",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 7,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "bridge"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "bridge",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "$entry_point"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "normal",
+            "phv_deparser_group_number": 4,
+            "phv_mau_group_number": 4,
+            "phv_number": 66,
+            "records": [
+                {
+                    "field_class": "padding",
+                    "field_lsb": 0,
+                    "field_msb": 6,
+                    "field_name": "ingress::compiler_generated_meta.^bridged_metadata.__pad_0",
+                    "gress": "ingress",
+                    "phv_lsb": 1,
+                    "phv_msb": 7,
+                    "reads": [],
+                    "writes": []
+                },
+                {
+                    "field_class": "bridged",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "ingress::compiler_generated_meta.^bridged_metadata.^fields_md_is_controller_packet_out",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 0,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "bridge"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": 0,
+                            "action_name": "act",
+                            "deparser_access_type": "bridge",
+                            "location_detail": "vliw",
+                            "table_name": "tbl_act"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "normal",
+            "phv_deparser_group_number": 8,
+            "phv_mau_group_number": 8,
+            "phv_number": 131,
+            "records": [
+                {
+                    "field_class": "padding",
+                    "field_lsb": 0,
+                    "field_msb": 6,
+                    "field_name": "ingress::compiler_generated_meta.^bridged_metadata.__pad_1",
+                    "gress": "ingress",
+                    "phv_lsb": 9,
+                    "phv_msb": 15,
+                    "reads": [],
+                    "writes": []
+                },
+                {
+                    "field_class": "bridged",
+                    "field_lsb": 0,
+                    "field_msb": 8,
+                    "field_name": "ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 8,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "bridge"
+                        },
+                        {
+                            "location": 1,
+                            "deparser_access_type": "bridge",
+                            "location_detail": "xbar",
+                            "table_name": "FabricIngress.acl.acl"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "bridge",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "$entry_point"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "normal",
+            "phv_deparser_group_number": 8,
+            "phv_mau_group_number": 8,
+            "phv_number": 128,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 8,
+                    "field_name": "ingress::hdr.packet_out.egress_port",
+                    "gress": "ingress",
+                    "phv_lsb": 7,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": 0,
+                            "action_name": "act",
+                            "location_detail": "vliw",
+                            "table_name": "tbl_act"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_packet_out"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "normal",
+            "phv_deparser_group_number": 0,
+            "phv_mau_group_number": 0,
+            "phv_number": 1,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 16,
+                    "field_msb": 47,
+                    "field_name": "ingress::hdr.ethernet.dst_addr",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "normal",
+            "phv_deparser_group_number": 8,
+            "phv_mau_group_number": 8,
+            "phv_number": 132,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.ethernet.dst_addr",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "normal",
+            "phv_deparser_group_number": 0,
+            "phv_mau_group_number": 0,
+            "phv_number": 2,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 16,
+                    "field_msb": 47,
+                    "field_name": "ingress::hdr.ethernet.src_addr",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "normal",
+            "phv_deparser_group_number": 0,
+            "phv_mau_group_number": 0,
+            "phv_number": 0,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.ethernet.src_addr",
+                    "gress": "ingress",
+                    "phv_lsb": 16,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ethernet"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.ethernet.eth_type",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        },
+                        {
+                            "location": 1,
+                            "deparser_access_type": "pkt",
+                            "location_detail": "xbar",
+                            "table_name": "FabricIngress.acl.acl"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 256,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 3,
+                    "field_name": "ingress::hdr.ipv4.version",
+                    "gress": "ingress",
+                    "phv_lsb": 28,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 3,
+                    "field_name": "ingress::hdr.ipv4.ihl",
+                    "gress": "ingress",
+                    "phv_lsb": 24,
+                    "phv_msb": 27,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 5,
+                    "field_name": "ingress::hdr.ipv4.dscp",
+                    "gress": "ingress",
+                    "phv_lsb": 18,
+                    "phv_msb": 23,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 1,
+                    "field_name": "ingress::hdr.ipv4.ecn",
+                    "gress": "ingress",
+                    "phv_lsb": 16,
+                    "phv_msb": 17,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.ipv4.total_len",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 258,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.ipv4.identification",
+                    "gress": "ingress",
+                    "phv_lsb": 16,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 2,
+                    "field_name": "ingress::hdr.ipv4.flags",
+                    "gress": "ingress",
+                    "phv_lsb": 13,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 12,
+                    "field_name": "ingress::hdr.ipv4.frag_offset",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 12,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 289,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 7,
+                    "field_name": "ingress::hdr.ipv4.ttl",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 7,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "normal",
+            "phv_deparser_group_number": 4,
+            "phv_mau_group_number": 4,
+            "phv_number": 67,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 7,
+                    "field_name": "ingress::hdr.ipv4.protocol",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 7,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        },
+                        {
+                            "location": 1,
+                            "deparser_access_type": "pkt",
+                            "location_detail": "xbar",
+                            "table_name": "FabricIngress.acl.acl"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 320,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.ipv4.hdr_checksum",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "normal",
+            "phv_deparser_group_number": 0,
+            "phv_mau_group_number": 0,
+            "phv_number": 3,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 31,
+                    "field_name": "ingress::hdr.ipv4.src_addr",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        },
+                        {
+                            "location": 1,
+                            "deparser_access_type": "pkt",
+                            "location_detail": "xbar",
+                            "table_name": "FabricIngress.acl.acl"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "normal",
+            "phv_deparser_group_number": 0,
+            "phv_mau_group_number": 0,
+            "phv_number": 4,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 31,
+                    "field_name": "ingress::hdr.ipv4.dst_addr",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        },
+                        {
+                            "location": 1,
+                            "deparser_access_type": "pkt",
+                            "location_detail": "xbar",
+                            "table_name": "FabricIngress.acl.acl"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 259,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.tcp.sport",
+                    "gress": "ingress",
+                    "phv_lsb": 16,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.tcp.dport",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.udp.len",
+                    "gress": "ingress",
+                    "phv_lsb": 16,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_udp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.udp.checksum",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_udp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.icmp.identifier",
+                    "gress": "ingress",
+                    "phv_lsb": 16,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_icmp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.icmp.sequence_number",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 324,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 16,
+                    "field_msb": 31,
+                    "field_name": "ingress::hdr.tcp.seq_no",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 48,
+                    "field_msb": 63,
+                    "field_name": "ingress::hdr.icmp.timestamp",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 323,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.tcp.seq_no",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 32,
+                    "field_msb": 47,
+                    "field_name": "ingress::hdr.icmp.timestamp",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 325,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 16,
+                    "field_msb": 31,
+                    "field_name": "ingress::hdr.tcp.ack_no",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 291,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 8,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.tcp.ack_no",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 7,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 290,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 7,
+                    "field_name": "ingress::hdr.tcp.ack_no",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 7,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 257,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 3,
+                    "field_name": "ingress::hdr.tcp.data_offset",
+                    "gress": "ingress",
+                    "phv_lsb": 28,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 2,
+                    "field_name": "ingress::hdr.tcp.res",
+                    "gress": "ingress",
+                    "phv_lsb": 25,
+                    "phv_msb": 27,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 2,
+                    "field_name": "ingress::hdr.tcp.ecn",
+                    "gress": "ingress",
+                    "phv_lsb": 22,
+                    "phv_msb": 24,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 5,
+                    "field_name": "ingress::hdr.tcp.ctrl",
+                    "gress": "ingress",
+                    "phv_lsb": 16,
+                    "phv_msb": 21,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.tcp.window",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.udp.sport",
+                    "gress": "ingress",
+                    "phv_lsb": 16,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_udp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.udp.dport",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_udp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 7,
+                    "field_name": "ingress::hdr.icmp.icmp_type",
+                    "gress": "ingress",
+                    "phv_lsb": 24,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_icmp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 7,
+                    "field_name": "ingress::hdr.icmp.icmp_code",
+                    "gress": "ingress",
+                    "phv_lsb": 16,
+                    "phv_msb": 23,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_icmp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.icmp.checksum",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 322,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.tcp.checksum",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 16,
+                    "field_msb": 31,
+                    "field_name": "ingress::hdr.icmp.timestamp",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 321,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.tcp.urgent_ptr",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "ingress::hdr.icmp.timestamp",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "normal",
+            "phv_deparser_group_number": 8,
+            "phv_mau_group_number": 8,
+            "phv_number": 129,
+            "records": [
+                {
+                    "field_class": "imeta",
+                    "field_lsb": 0,
+                    "field_msb": 8,
+                    "field_name": "ingress::ig_intr_md_for_tm.ucast_egress_port",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 8,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "imeta"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": 0,
+                            "action_name": "act",
+                            "deparser_access_type": "imeta",
+                            "location_detail": "vliw",
+                            "table_name": "tbl_act"
+                        },
+                        {
+                            "location": 1,
+                            "action_name": "FabricIngress.acl.output",
+                            "deparser_access_type": "imeta",
+                            "location_detail": "vliw",
+                            "table_name": "FabricIngress.acl.acl"
+                        },
+                        {
+                            "location": 1,
+                            "action_name": "FabricIngress.acl.punt_to_cpu",
+                            "deparser_access_type": "imeta",
+                            "location_detail": "vliw",
+                            "table_name": "FabricIngress.acl.acl"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "normal",
+            "phv_deparser_group_number": 4,
+            "phv_mau_group_number": 4,
+            "phv_number": 65,
+            "records": [
+                {
+                    "field_class": "imeta",
+                    "field_lsb": 0,
+                    "field_msb": 2,
+                    "field_name": "ingress::ig_intr_md_for_dprsr.drop_ctl",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 2,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "imeta"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": 1,
+                            "action_name": "FabricIngress.acl.drop",
+                            "deparser_access_type": "imeta",
+                            "location_detail": "vliw",
+                            "table_name": "FabricIngress.acl.acl"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "normal",
+            "phv_deparser_group_number": 4,
+            "phv_mau_group_number": 4,
+            "phv_number": 64,
+            "records": [
+                {
+                    "field_class": "imeta",
+                    "field_lsb": 0,
+                    "field_msb": 2,
+                    "field_name": "ingress::ig_intr_md_for_dprsr.mirror_type",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 2,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "imeta"
+                        }
+                    ],
+                    "writes": []
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "normal",
+            "phv_deparser_group_number": 8,
+            "phv_mau_group_number": 8,
+            "phv_number": 130,
+            "records": [
+                {
+                    "field_class": "meta",
+                    "field_lsb": 0,
+                    "field_msb": 9,
+                    "field_name": "ingress::compiler_generated_meta.mirror_id",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 9,
+                    "reads": [
+                        {
+                            "location": "deparser"
+                        }
+                    ],
+                    "writes": []
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "normal",
+            "phv_deparser_group_number": 9,
+            "phv_mau_group_number": 9,
+            "phv_number": 144,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 8,
+                    "field_name": "egress::eg_intr_md.egress_port",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 8,
+                    "reads": [
+                        {
+                            "location": "deparser"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "$entry_point"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "normal",
+            "phv_deparser_group_number": 9,
+            "phv_mau_group_number": 9,
+            "phv_number": 145,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 8,
+                    "field_name": "egress::ig_intr_md.ingress_port",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 8,
+                    "reads": [
+                        {
+                            "location": 0,
+                            "action_name": "act_6",
+                            "location_detail": "vliw",
+                            "table_name": "tbl_act_6"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::$bridged_metadata"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "normal",
+            "phv_deparser_group_number": 5,
+            "phv_mau_group_number": 5,
+            "phv_number": 80,
+            "records": [
+                {
+                    "field_class": "meta",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "egress::fabric_metadata.is_multicast",
+                    "gress": "egress",
+                    "phv_lsb": 3,
+                    "phv_msb": 3,
+                    "reads": [],
+                    "writes": []
+                },
+                {
+                    "field_class": "meta",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "egress::fabric_metadata.clone_to_cpu",
+                    "gress": "egress",
+                    "phv_lsb": 4,
+                    "phv_msb": 4,
+                    "reads": [],
+                    "writes": []
+                },
+                {
+                    "field_class": "imeta",
+                    "field_lsb": 0,
+                    "field_msb": 2,
+                    "field_name": "egress::eg_intr_md_for_dprsr.drop_ctl",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 2,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "imeta"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": 0,
+                            "action_name": "act_5",
+                            "deparser_access_type": "imeta",
+                            "location_detail": "vliw",
+                            "table_name": "tbl_act_5"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "normal",
+            "phv_deparser_group_number": 5,
+            "phv_mau_group_number": 5,
+            "phv_number": 82,
+            "records": [
+                {
+                    "field_class": "meta",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "egress::fabric_metadata.is_controller_packet_out",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 0,
+                    "reads": [],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::$bridged_metadata"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 295,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 40,
+                    "field_msb": 47,
+                    "field_name": "egress::hdr.ethernet.dst_addr",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 7,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 294,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 32,
+                    "field_msb": 39,
+                    "field_name": "egress::hdr.ethernet.dst_addr",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 7,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 293,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 24,
+                    "field_msb": 31,
+                    "field_name": "egress::hdr.ethernet.dst_addr",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 7,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 292,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 16,
+                    "field_msb": 23,
+                    "field_name": "egress::hdr.ethernet.dst_addr",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 7,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 334,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.ethernet.dst_addr",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 264,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 16,
+                    "field_msb": 47,
+                    "field_name": "egress::hdr.ethernet.src_addr",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 263,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.ethernet.src_addr",
+                    "gress": "egress",
+                    "phv_lsb": 16,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ethernet"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.ethernet.eth_type",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ethernet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 260,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 3,
+                    "field_name": "egress::hdr.ipv4.version",
+                    "gress": "egress",
+                    "phv_lsb": 28,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 3,
+                    "field_name": "egress::hdr.ipv4.ihl",
+                    "gress": "egress",
+                    "phv_lsb": 24,
+                    "phv_msb": 27,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 5,
+                    "field_name": "egress::hdr.ipv4.dscp",
+                    "gress": "egress",
+                    "phv_lsb": 18,
+                    "phv_msb": 23,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 1,
+                    "field_name": "egress::hdr.ipv4.ecn",
+                    "gress": "egress",
+                    "phv_lsb": 16,
+                    "phv_msb": 17,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.ipv4.total_len",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 262,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.ipv4.identification",
+                    "gress": "egress",
+                    "phv_lsb": 16,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 2,
+                    "field_name": "egress::hdr.ipv4.flags",
+                    "gress": "egress",
+                    "phv_lsb": 13,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 12,
+                    "field_name": "egress::hdr.ipv4.frag_offset",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 12,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 326,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 7,
+                    "field_name": "egress::hdr.ipv4.ttl",
+                    "gress": "egress",
+                    "phv_lsb": 8,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 7,
+                    "field_name": "egress::hdr.ipv4.protocol",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 7,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 327,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.ipv4.hdr_checksum",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 265,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 31,
+                    "field_name": "egress::hdr.ipv4.src_addr",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 266,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 31,
+                    "field_name": "egress::hdr.ipv4.dst_addr",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "checksum"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "checksum",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 329,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.tcp.sport",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.udp.len",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_udp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.icmp.identifier",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 328,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.tcp.dport",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.udp.checksum",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_udp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.icmp.sequence_number",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 267,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 31,
+                    "field_name": "egress::hdr.tcp.seq_no",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 31,
+                    "field_name": "egress::hdr.icmp.timestamp",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 333,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 16,
+                    "field_msb": 31,
+                    "field_name": "egress::hdr.tcp.ack_no",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 332,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.tcp.ack_no",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 32,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 261,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 3,
+                    "field_name": "egress::hdr.tcp.data_offset",
+                    "gress": "egress",
+                    "phv_lsb": 28,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 2,
+                    "field_name": "egress::hdr.tcp.res",
+                    "gress": "egress",
+                    "phv_lsb": 25,
+                    "phv_msb": 27,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 2,
+                    "field_name": "egress::hdr.tcp.ecn",
+                    "gress": "egress",
+                    "phv_lsb": 22,
+                    "phv_msb": 24,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 5,
+                    "field_name": "egress::hdr.tcp.ctrl",
+                    "gress": "egress",
+                    "phv_lsb": 16,
+                    "phv_msb": 21,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.tcp.window",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.udp.sport",
+                    "gress": "egress",
+                    "phv_lsb": 16,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_udp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.udp.dport",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_udp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 7,
+                    "field_name": "egress::hdr.icmp.icmp_type",
+                    "gress": "egress",
+                    "phv_lsb": 24,
+                    "phv_msb": 31,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_icmp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 7,
+                    "field_name": "egress::hdr.icmp.icmp_code",
+                    "gress": "egress",
+                    "phv_lsb": 16,
+                    "phv_msb": 23,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_icmp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.icmp.checksum",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 331,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.tcp.checksum",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 48,
+                    "field_msb": 63,
+                    "field_name": "egress::hdr.icmp.timestamp",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "tagalong",
+            "phv_deparser_group_number": -1,
+            "phv_mau_group_number": -1,
+            "phv_number": 330,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 15,
+                    "field_name": "egress::hdr.tcp.urgent_ptr",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 32,
+                    "field_msb": 47,
+                    "field_name": "egress::hdr.icmp.timestamp",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 16,
+            "container_type": "normal",
+            "phv_deparser_group_number": 9,
+            "phv_mau_group_number": 9,
+            "phv_number": 146,
+            "records": [
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 8,
+                    "field_name": "egress::hdr.packet_in.ingress_port",
+                    "gress": "egress",
+                    "phv_lsb": 7,
+                    "phv_msb": 15,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": 0,
+                            "action_name": "act_6",
+                            "deparser_access_type": "pkt",
+                            "location_detail": "vliw",
+                            "table_name": "tbl_act_6"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pkt",
+                    "field_lsb": 0,
+                    "field_msb": 6,
+                    "field_name": "egress::hdr.packet_in._pad",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 6,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pkt"
+                        }
+                    ],
+                    "writes": []
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "normal",
+            "phv_deparser_group_number": 4,
+            "phv_mau_group_number": 4,
+            "phv_number": 68,
+            "records": [
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "ingress::compiler_generated_meta.^bridged_metadata.$valid",
+                    "gress": "ingress",
+                    "phv_lsb": 0,
+                    "phv_msb": 0,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "$entry_point"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "ingress::hdr.packet_out.$valid",
+                    "gress": "ingress",
+                    "phv_lsb": 1,
+                    "phv_msb": 1,
+                    "reads": [],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_packet_out"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "ingress::hdr.ethernet.$valid",
+                    "gress": "ingress",
+                    "phv_lsb": 2,
+                    "phv_msb": 2,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ethernet"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "ingress::hdr.ipv4.$valid",
+                    "gress": "ingress",
+                    "phv_lsb": 3,
+                    "phv_msb": 3,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "ingress::hdr.tcp.$valid",
+                    "gress": "ingress",
+                    "phv_lsb": 4,
+                    "phv_msb": 4,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "ingress::hdr.udp.$valid",
+                    "gress": "ingress",
+                    "phv_lsb": 5,
+                    "phv_msb": 5,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_udp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "ingress::hdr.icmp.$valid",
+                    "gress": "ingress",
+                    "phv_lsb": 6,
+                    "phv_msb": 6,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "ingress::parse_icmp"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bit_width": 8,
+            "container_type": "normal",
+            "phv_deparser_group_number": 5,
+            "phv_mau_group_number": 5,
+            "phv_number": 81,
+            "records": [
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "egress::hdr.ethernet.$valid",
+                    "gress": "egress",
+                    "phv_lsb": 0,
+                    "phv_msb": 0,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ethernet"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "egress::hdr.ipv4.$valid",
+                    "gress": "egress",
+                    "phv_lsb": 1,
+                    "phv_msb": 1,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_ipv4"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "egress::hdr.tcp.$valid",
+                    "gress": "egress",
+                    "phv_lsb": 2,
+                    "phv_msb": 2,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_tcp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "egress::hdr.udp.$valid",
+                    "gress": "egress",
+                    "phv_lsb": 3,
+                    "phv_msb": 3,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_udp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "egress::hdr.icmp.$valid",
+                    "gress": "egress",
+                    "phv_lsb": 4,
+                    "phv_msb": 4,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": "parser",
+                            "deparser_access_type": "pov",
+                            "location_detail": "ibuf",
+                            "parser_state_name": "egress::parse_icmp"
+                        }
+                    ]
+                },
+                {
+                    "field_class": "pov",
+                    "field_lsb": 0,
+                    "field_msb": 0,
+                    "field_name": "egress::hdr.packet_in.$valid",
+                    "gress": "egress",
+                    "phv_lsb": 5,
+                    "phv_msb": 5,
+                    "reads": [
+                        {
+                            "location": "deparser",
+                            "deparser_access_type": "pov"
+                        }
+                    ],
+                    "writes": [
+                        {
+                            "location": 0,
+                            "action_name": "act_6",
+                            "deparser_access_type": "pov",
+                            "location_detail": "vliw",
+                            "table_name": "tbl_act_6"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "nStages": 12,
+    "pov_structure": [],
+    "program_name": "fabric.p4",
+    "resources": [
+        {
+            "addresses": [
+                288,
+                289,
+                290,
+                291,
+                292,
+                293,
+                294,
+                295,
+                296,
+                297,
+                298,
+                299,
+                300,
+                301,
+                302,
+                303,
+                304,
+                305,
+                306,
+                307,
+                308,
+                309,
+                310,
+                311,
+                312,
+                313,
+                314,
+                315,
+                316,
+                317,
+                318,
+                319
+            ],
+            "bit_width": 8,
+            "group_type": "mau",
+            "num_containers": 32
+        },
+        {
+            "addresses": [
+                320,
+                321,
+                322,
+                323,
+                324,
+                325,
+                326,
+                327,
+                328,
+                329,
+                330,
+                331,
+                332,
+                333,
+                334,
+                335,
+                336,
+                337,
+                338,
+                339,
+                340,
+                341,
+                342,
+                343,
+                344,
+                345,
+                346,
+                347,
+                348,
+                349,
+                350,
+                351,
+                352,
+                353,
+                354,
+                355,
+                356,
+                357,
+                358,
+                359,
+                360,
+                361,
+                362,
+                363,
+                364,
+                365,
+                366,
+                367
+            ],
+            "bit_width": 16,
+            "group_type": "mau",
+            "num_containers": 48
+        },
+        {
+            "addresses": [
+                256,
+                257,
+                258,
+                259,
+                260,
+                261,
+                262,
+                263,
+                264,
+                265,
+                266,
+                267,
+                268,
+                269,
+                270,
+                271,
+                272,
+                273,
+                274,
+                275,
+                276,
+                277,
+                278,
+                279,
+                280,
+                281,
+                282,
+                283,
+                284,
+                285,
+                286,
+                287
+            ],
+            "bit_width": 32,
+            "group_type": "mau",
+            "num_containers": 32
+        },
+        {
+            "addresses": [
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121,
+                122,
+                123,
+                124,
+                125,
+                126,
+                127
+            ],
+            "bit_width": 8,
+            "group_type": "mau",
+            "num_containers": 64
+        },
+        {
+            "addresses": [
+                128,
+                129,
+                130,
+                131,
+                132,
+                133,
+                134,
+                135,
+                136,
+                137,
+                138,
+                139,
+                140,
+                141,
+                142,
+                143,
+                144,
+                145,
+                146,
+                147,
+                148,
+                149,
+                150,
+                151,
+                152,
+                153,
+                154,
+                155,
+                156,
+                157,
+                158,
+                159,
+                160,
+                161,
+                162,
+                163,
+                164,
+                165,
+                166,
+                167,
+                168,
+                169,
+                170,
+                171,
+                172,
+                173,
+                174,
+                175,
+                176,
+                177,
+                178,
+                179,
+                180,
+                181,
+                182,
+                183,
+                184,
+                185,
+                186,
+                187,
+                188,
+                189,
+                190,
+                191,
+                192,
+                193,
+                194,
+                195,
+                196,
+                197,
+                198,
+                199,
+                200,
+                201,
+                202,
+                203,
+                204,
+                205,
+                206,
+                207,
+                208,
+                209,
+                210,
+                211,
+                212,
+                213,
+                214,
+                215,
+                216,
+                217,
+                218,
+                219,
+                220,
+                221,
+                222,
+                223,
+                224,
+                225,
+                226,
+                227,
+                228,
+                229,
+                230,
+                231,
+                232,
+                233,
+                234,
+                235,
+                236,
+                237,
+                238,
+                239,
+                240,
+                241,
+                242,
+                243,
+                244,
+                245,
+                246,
+                247,
+                248,
+                249,
+                250,
+                251,
+                252,
+                253,
+                254,
+                255
+            ],
+            "bit_width": 16,
+            "group_type": "mau",
+            "num_containers": 128
+        },
+        {
+            "addresses": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63
+            ],
+            "bit_width": 32,
+            "group_type": "mau",
+            "num_containers": 64
+        },
+        {
+            "addresses": [
+                288,
+                289,
+                290,
+                291,
+                292,
+                293,
+                294,
+                295,
+                296,
+                297,
+                298,
+                299,
+                300,
+                301,
+                302,
+                303,
+                304,
+                305,
+                306,
+                307,
+                308,
+                309,
+                310,
+                311,
+                312,
+                313,
+                314,
+                315,
+                316,
+                317,
+                318,
+                319
+            ],
+            "bit_width": 8,
+            "group_type": "deparser",
+            "num_containers": 32
+        },
+        {
+            "addresses": [
+                320,
+                321,
+                322,
+                323,
+                324,
+                325,
+                326,
+                327,
+                328,
+                329,
+                330,
+                331,
+                332,
+                333,
+                334,
+                335,
+                336,
+                337,
+                338,
+                339,
+                340,
+                341,
+                342,
+                343,
+                344,
+                345,
+                346,
+                347,
+                348,
+                349,
+                350,
+                351,
+                352,
+                353,
+                354,
+                355,
+                356,
+                357,
+                358,
+                359,
+                360,
+                361,
+                362,
+                363,
+                364,
+                365,
+                366,
+                367
+            ],
+            "bit_width": 16,
+            "group_type": "deparser",
+            "num_containers": 48
+        },
+        {
+            "addresses": [
+                256,
+                257,
+                258,
+                259,
+                260,
+                261,
+                262,
+                263,
+                264,
+                265,
+                266,
+                267,
+                268,
+                269,
+                270,
+                271,
+                272,
+                273,
+                274,
+                275,
+                276,
+                277,
+                278,
+                279,
+                280,
+                281,
+                282,
+                283,
+                284,
+                285,
+                286,
+                287
+            ],
+            "bit_width": 32,
+            "group_type": "deparser",
+            "num_containers": 32
+        },
+        {
+            "addresses": [
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121,
+                122,
+                123,
+                124,
+                125,
+                126,
+                127
+            ],
+            "bit_width": 8,
+            "group_type": "deparser",
+            "num_containers": 64
+        },
+        {
+            "addresses": [
+                128,
+                129,
+                130,
+                131,
+                132,
+                133,
+                134,
+                135,
+                136,
+                137,
+                138,
+                139,
+                140,
+                141,
+                142,
+                143,
+                144,
+                145,
+                146,
+                147,
+                148,
+                149,
+                150,
+                151,
+                152,
+                153,
+                154,
+                155,
+                156,
+                157,
+                158,
+                159,
+                160,
+                161,
+                162,
+                163,
+                164,
+                165,
+                166,
+                167,
+                168,
+                169,
+                170,
+                171,
+                172,
+                173,
+                174,
+                175,
+                176,
+                177,
+                178,
+                179,
+                180,
+                181,
+                182,
+                183,
+                184,
+                185,
+                186,
+                187,
+                188,
+                189,
+                190,
+                191,
+                192,
+                193,
+                194,
+                195,
+                196,
+                197,
+                198,
+                199,
+                200,
+                201,
+                202,
+                203,
+                204,
+                205,
+                206,
+                207,
+                208,
+                209,
+                210,
+                211,
+                212,
+                213,
+                214,
+                215,
+                216,
+                217,
+                218,
+                219,
+                220,
+                221,
+                222,
+                223,
+                224,
+                225,
+                226,
+                227,
+                228,
+                229,
+                230,
+                231,
+                232,
+                233,
+                234,
+                235,
+                236,
+                237,
+                238,
+                239,
+                240,
+                241,
+                242,
+                243,
+                244,
+                245,
+                246,
+                247,
+                248,
+                249,
+                250,
+                251,
+                252,
+                253,
+                254,
+                255
+            ],
+            "bit_width": 16,
+            "group_type": "deparser",
+            "num_containers": 128
+        },
+        {
+            "addresses": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63
+            ],
+            "bit_width": 32,
+            "group_type": "deparser",
+            "num_containers": 64
+        }
+    ],
+    "run_id": "0ecf3262bba447de",
+    "schema_version": "1.0.3",
+    "structures": [
+        {
+            "name": "ingress::compiler_generated_meta.^bridged_metadata",
+            "ordered_fields": [
+                "ingress::compiler_generated_meta.^bridged_metadata.^bridged_metadata_indicator",
+                "ingress::compiler_generated_meta.^bridged_metadata.__pad_0",
+                "ingress::compiler_generated_meta.^bridged_metadata.^fields_md_is_controller_packet_out",
+                "ingress::compiler_generated_meta.^bridged_metadata.__pad_1",
+                "ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port",
+                "ingress::compiler_generated_meta.^bridged_metadata.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "ingress::hdr.packet_out",
+            "ordered_fields": [
+                "ingress::hdr.packet_out.egress_port",
+                "ingress::hdr.packet_out.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "ingress::hdr.ethernet",
+            "ordered_fields": [
+                "ingress::hdr.ethernet.dst_addr",
+                "ingress::hdr.ethernet.src_addr",
+                "ingress::hdr.ethernet.eth_type",
+                "ingress::hdr.ethernet.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "ingress::hdr.ipv4",
+            "ordered_fields": [
+                "ingress::hdr.ipv4.version",
+                "ingress::hdr.ipv4.ihl",
+                "ingress::hdr.ipv4.dscp",
+                "ingress::hdr.ipv4.ecn",
+                "ingress::hdr.ipv4.total_len",
+                "ingress::hdr.ipv4.identification",
+                "ingress::hdr.ipv4.flags",
+                "ingress::hdr.ipv4.frag_offset",
+                "ingress::hdr.ipv4.ttl",
+                "ingress::hdr.ipv4.protocol",
+                "ingress::hdr.ipv4.hdr_checksum",
+                "ingress::hdr.ipv4.src_addr",
+                "ingress::hdr.ipv4.dst_addr",
+                "ingress::hdr.ipv4.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "ingress::hdr.tcp",
+            "ordered_fields": [
+                "ingress::hdr.tcp.sport",
+                "ingress::hdr.tcp.dport",
+                "ingress::hdr.tcp.seq_no",
+                "ingress::hdr.tcp.ack_no",
+                "ingress::hdr.tcp.data_offset",
+                "ingress::hdr.tcp.res",
+                "ingress::hdr.tcp.ecn",
+                "ingress::hdr.tcp.ctrl",
+                "ingress::hdr.tcp.window",
+                "ingress::hdr.tcp.checksum",
+                "ingress::hdr.tcp.urgent_ptr",
+                "ingress::hdr.tcp.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "ingress::hdr.udp",
+            "ordered_fields": [
+                "ingress::hdr.udp.sport",
+                "ingress::hdr.udp.dport",
+                "ingress::hdr.udp.len",
+                "ingress::hdr.udp.checksum",
+                "ingress::hdr.udp.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "ingress::hdr.icmp",
+            "ordered_fields": [
+                "ingress::hdr.icmp.icmp_type",
+                "ingress::hdr.icmp.icmp_code",
+                "ingress::hdr.icmp.checksum",
+                "ingress::hdr.icmp.identifier",
+                "ingress::hdr.icmp.sequence_number",
+                "ingress::hdr.icmp.timestamp",
+                "ingress::hdr.icmp.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "ingress::ig_intr_md_for_tm",
+            "ordered_fields": [
+                "ingress::ig_intr_md_for_tm.ucast_egress_port"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "ingress::ig_intr_md_for_dprsr",
+            "ordered_fields": [
+                "ingress::ig_intr_md_for_dprsr.drop_ctl",
+                "ingress::ig_intr_md_for_dprsr.mirror_type"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "ingress::compiler_generated_meta",
+            "ordered_fields": [
+                "ingress::compiler_generated_meta.mirror_id"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "egress::eg_intr_md",
+            "ordered_fields": [
+                "egress::eg_intr_md.egress_port"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "egress::ig_intr_md",
+            "ordered_fields": [
+                "egress::ig_intr_md.ingress_port"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "egress::fabric_metadata",
+            "ordered_fields": [
+                "egress::fabric_metadata.is_multicast",
+                "egress::fabric_metadata.is_controller_packet_out",
+                "egress::fabric_metadata.clone_to_cpu"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "egress::hdr.ethernet",
+            "ordered_fields": [
+                "egress::hdr.ethernet.dst_addr",
+                "egress::hdr.ethernet.src_addr",
+                "egress::hdr.ethernet.eth_type",
+                "egress::hdr.ethernet.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "egress::hdr.ipv4",
+            "ordered_fields": [
+                "egress::hdr.ipv4.version",
+                "egress::hdr.ipv4.ihl",
+                "egress::hdr.ipv4.dscp",
+                "egress::hdr.ipv4.ecn",
+                "egress::hdr.ipv4.total_len",
+                "egress::hdr.ipv4.identification",
+                "egress::hdr.ipv4.flags",
+                "egress::hdr.ipv4.frag_offset",
+                "egress::hdr.ipv4.ttl",
+                "egress::hdr.ipv4.protocol",
+                "egress::hdr.ipv4.hdr_checksum",
+                "egress::hdr.ipv4.src_addr",
+                "egress::hdr.ipv4.dst_addr",
+                "egress::hdr.ipv4.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "egress::hdr.tcp",
+            "ordered_fields": [
+                "egress::hdr.tcp.sport",
+                "egress::hdr.tcp.dport",
+                "egress::hdr.tcp.seq_no",
+                "egress::hdr.tcp.ack_no",
+                "egress::hdr.tcp.data_offset",
+                "egress::hdr.tcp.res",
+                "egress::hdr.tcp.ecn",
+                "egress::hdr.tcp.ctrl",
+                "egress::hdr.tcp.window",
+                "egress::hdr.tcp.checksum",
+                "egress::hdr.tcp.urgent_ptr",
+                "egress::hdr.tcp.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "egress::hdr.udp",
+            "ordered_fields": [
+                "egress::hdr.udp.sport",
+                "egress::hdr.udp.dport",
+                "egress::hdr.udp.len",
+                "egress::hdr.udp.checksum",
+                "egress::hdr.udp.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "egress::hdr.icmp",
+            "ordered_fields": [
+                "egress::hdr.icmp.icmp_type",
+                "egress::hdr.icmp.icmp_code",
+                "egress::hdr.icmp.checksum",
+                "egress::hdr.icmp.identifier",
+                "egress::hdr.icmp.sequence_number",
+                "egress::hdr.icmp.timestamp",
+                "egress::hdr.icmp.$valid"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "egress::eg_intr_md_for_dprsr",
+            "ordered_fields": [
+                "egress::eg_intr_md_for_dprsr.drop_ctl"
+            ],
+            "type": "header"
+        },
+        {
+            "name": "egress::hdr.packet_in",
+            "ordered_fields": [
+                "egress::hdr.packet_in.ingress_port",
+                "egress::hdr.packet_in._pad",
+                "egress::hdr.packet_in.$valid"
+            ],
+            "type": "header"
+        }
+    ],
+    "target": "tofino"
+}

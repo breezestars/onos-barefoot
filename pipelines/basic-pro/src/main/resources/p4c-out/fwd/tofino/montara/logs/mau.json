@@ -1,0 +1,497 @@
+{
+    "build_date": "Thu Jul 11 10:30:28 2019", 
+    "program_name": "fabric", 
+    "run_id": "0ecf3262bba447de", 
+    "compiler_version": "8.9.0", 
+    "schema_version": "1.0.0", 
+    "tables": [
+        {
+            "name": "FabricIngress.acl.acl", 
+            "gress": "ingress", 
+            "lookup_types": [
+                "ternary"
+            ], 
+            "entries_requested": 1024, 
+            "entries_allocated": 1024, 
+            "match_fields": [
+                {
+                    "name": "standard_metadata.ingress_port", 
+                    "start_bit": 0, 
+                    "bit_width": 9, 
+                    "lookup_type": "ternary"
+                }, 
+                {
+                    "name": "hdr.ethernet.src_addr", 
+                    "start_bit": 0, 
+                    "bit_width": 48, 
+                    "lookup_type": "ternary"
+                }, 
+                {
+                    "name": "hdr.ethernet.dst_addr", 
+                    "start_bit": 0, 
+                    "bit_width": 48, 
+                    "lookup_type": "ternary"
+                }, 
+                {
+                    "name": "hdr.ethernet.eth_type", 
+                    "start_bit": 0, 
+                    "bit_width": 16, 
+                    "lookup_type": "ternary"
+                }, 
+                {
+                    "name": "hdr.ipv4.src_addr", 
+                    "start_bit": 0, 
+                    "bit_width": 32, 
+                    "lookup_type": "ternary"
+                }, 
+                {
+                    "name": "hdr.ipv4.dst_addr", 
+                    "start_bit": 0, 
+                    "bit_width": 32, 
+                    "lookup_type": "ternary"
+                }, 
+                {
+                    "name": "hdr.ipv4.protocol", 
+                    "start_bit": 0, 
+                    "bit_width": 8, 
+                    "lookup_type": "ternary"
+                }
+            ], 
+            "action_parameters": [
+                {
+                    "action_name": "FabricIngress.acl.output", 
+                    "parameters": [
+                        {
+                            "name": "port_num", 
+                            "bit_width": 9
+                        }
+                    ]
+                }, 
+                {
+                    "action_name": "FabricIngress.acl.punt_to_cpu", 
+                    "parameters": []
+                }, 
+                {
+                    "action_name": "FabricIngress.acl.drop", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 1, 
+                    "memories": [
+                        {
+                            "memory_type": "tcam", 
+                            "table_word_width": 220, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 10, 
+                            "entries_requested": 1024, 
+                            "entries_allocated": 1024, 
+                            "imm_bit_width_in_overhead_requested": 9, 
+                            "imm_bit_width_in_overhead_allocated": 9, 
+                            "entry_bit_width_requested": 197, 
+                            "entry_bit_width_allocated": 220, 
+                            "ideal_entries_per_table_word": 1, 
+                            "ideal_table_word_bit_width": 220
+                        }, 
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 8, 
+                            "table_type": "tind", 
+                            "num_memories": 1, 
+                            "entry_bit_width_requested": 9, 
+                            "entry_bit_width_allocated": 16
+                        }, 
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 2, 
+                            "table_type": "statistics", 
+                            "num_memories": 2
+                        }
+                    ], 
+                    "overhead_fields": [
+                        {
+                            "name": "immediate", 
+                            "bit_width": 9
+                        }
+                    ], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": [
+                                    {
+                                        "name": "--version--", 
+                                        "bit_width": 2, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 86
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.dst_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 16, 
+                                        "memory_start_bit": 176
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.eth_type", 
+                                        "bit_width": 8, 
+                                        "start_bit": 8, 
+                                        "memory_start_bit": 184
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.src_addr", 
+                                        "bit_width": 16, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 192
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 16, 
+                                        "memory_start_bit": 208
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.dst_addr", 
+                                        "bit_width": 16, 
+                                        "start_bit": 32, 
+                                        "memory_start_bit": 132
+                                    }, 
+                                    {
+                                        "name": "hdr.ipv4.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 148
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.dst_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 24, 
+                                        "memory_start_bit": 156
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 32, 
+                                        "memory_start_bit": 164
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 40, 
+                                        "memory_start_bit": 88
+                                    }, 
+                                    {
+                                        "name": "hdr.ipv4.dst_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 96
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 24, 
+                                        "memory_start_bit": 104
+                                    }, 
+                                    {
+                                        "name": "hdr.ipv4.src_addr", 
+                                        "bit_width": 16, 
+                                        "start_bit": 16, 
+                                        "memory_start_bit": 112
+                                    }, 
+                                    {
+                                        "name": "hdr.ipv4.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 8, 
+                                        "memory_start_bit": 44
+                                    }, 
+                                    {
+                                        "name": "hdr.ipv4.dst_addr", 
+                                        "bit_width": 16, 
+                                        "start_bit": 16, 
+                                        "memory_start_bit": 52
+                                    }, 
+                                    {
+                                        "name": "standard_metadata.ingress_port", 
+                                        "bit_width": 8, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 68
+                                    }, 
+                                    {
+                                        "name": "hdr.ipv4.dst_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 8, 
+                                        "memory_start_bit": 76
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.dst_addr", 
+                                        "bit_width": 16, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 0
+                                    }, 
+                                    {
+                                        "name": "hdr.ipv4.protocol", 
+                                        "bit_width": 8, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 16
+                                    }, 
+                                    {
+                                        "name": "standard_metadata.ingress_port", 
+                                        "bit_width": 1, 
+                                        "start_bit": 8, 
+                                        "memory_start_bit": 128
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.eth_type", 
+                                        "bit_width": 4, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 216
+                                    }, 
+                                    {
+                                        "name": "hdr.ethernet.eth_type", 
+                                        "bit_width": 4, 
+                                        "start_bit": 4, 
+                                        "memory_start_bit": 172
+                                    }
+                                ]
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_act", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 1, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "act", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 0, 
+                    "memories": [], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_act_0", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 512, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "act_0", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 0, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 2, 
+                            "table_type": "statistics", 
+                            "num_memories": 2
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_act_1", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 512, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "act_1", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 2, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 2, 
+                            "table_type": "statistics", 
+                            "num_memories": 2
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_act_2", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 512, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "act_2", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 0, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 2, 
+                            "table_type": "statistics", 
+                            "num_memories": 2
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_act_3", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 1, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "act_3", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 0, 
+                    "memories": [], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_act_4", 
+            "gress": "egress", 
+            "lookup_types": [], 
+            "entries_requested": 1, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "act_4", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 0, 
+                    "memories": [], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_act_5", 
+            "gress": "egress", 
+            "lookup_types": [], 
+            "entries_requested": 1, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "act_5", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 0, 
+                    "memories": [], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_act_6", 
+            "gress": "egress", 
+            "lookup_types": [], 
+            "entries_requested": 1, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "act_6", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 0, 
+                    "memories": [], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }
+    ]
+}

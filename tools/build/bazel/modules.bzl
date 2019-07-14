@@ -283,6 +283,7 @@ MODELS = [
 
 PIPELINES = [
     "//pipelines/basic:onos-pipelines-basic-oar",
+    "//pipelines/basic-pro:onos-pipelines-basic-pro-oar",
     "//pipelines/fabric:onos-pipelines-fabric-oar",
 ]
 

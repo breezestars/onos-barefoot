@@ -1,0 +1,89 @@
+Parser Characterization Report:
+Number of states on ingress: 13
+
+Number of matches on ingress: 19
+
+Longest path (10 states) on ingress:
+    $entry_point
+    $check_resubmit
+    $phase0
+    $skip_to_packet
+    start
+    parse_packet_out
+    parse_ethernet
+    parse_ipv4
+    parse_tcp
+    parse_tcp.$split_0
+
+Average rate: 7.3 Bps
+Min packet size at 100 Gbps: 103 B (30 B payload)
+Max data rate for min-sized packets: 70.76 Gbps / 121.164 MPps
+
+Extractor usage:
++--------------------+--------------------+-------+--------+--------+------------------+-------+
+|State               |Match               |8-bit  |16-bit  |32-bit  |Total Extractors  |Other  |
++--------------------+--------------------+-------+--------+--------+------------------+-------+
+|$entry_point        |0                   |1      |1       |0       |2                 |       |
+|$check_resubmit     |0b0*******          |0      |0       |0       |0                 |       |
+|-                   |0b1*******          |0      |0       |0       |0                 |       |
+|$resubmit           |0                   |0      |0       |0       |0                 |       |
+|$phase0             |0                   |0      |0       |0       |0                 |       |
+|$skip_to_packet     |0                   |0      |0       |0       |0                 |       |
+|start               |0b*******011000000  |0      |0       |0       |0                 |       |
+|-                   |0x****              |0      |0       |0       |0                 |       |
+|parse_packet_out    |0                   |1      |1       |0       |2                 |       |
+|parse_ethernet      |0x0800              |1      |1       |3       |5                 |       |
+|-                   |0x****              |1      |1       |3       |5                 |       |
+|parse_ipv4          |0x06                |3      |1       |4       |8                 |       |
+|-                   |0x11                |3      |1       |4       |8                 |       |
+|-                   |0x01                |3      |1       |4       |8                 |       |
+|-                   |0x**                |3      |1       |4       |8                 |       |
+|parse_icmp          |0                   |1      |4       |2       |7                 |       |
+|parse_tcp           |0                   |3      |4       |2       |9                 |       |
+|parse_tcp.$split_0  |0                   |0      |1       |0       |1                 |       |
+|parse_udp           |0                   |1      |0       |2       |3                 |       |
++--------------------+--------------------+-------+--------+--------+------------------+-------+
+Number of states on egress: 13
+
+Number of matches on egress: 19
+
+Longest path (10 states) on egress:
+    $entry_point
+    $check_mirrored
+    $mirrored
+    start
+    parse_packet_out
+    parse_ethernet
+    parse_ethernet.$split_0
+    parse_ipv4
+    parse_tcp
+    parse_tcp.$split_0
+
+Average rate: 7.3 Bps
+Min packet size at 100 Gbps: 103 B (30 B payload)
+Max data rate for min-sized packets: 70.76 Gbps / 121.164 MPps
+
+Extractor usage:
++-------------------------+--------------------+-------+--------+--------+------------------+-------+
+|State                    |Match               |8-bit  |16-bit  |32-bit  |Total Extractors  |Other  |
++-------------------------+--------------------+-------+--------+--------+------------------+-------+
+|$entry_point             |0                   |0      |1       |0       |1                 |       |
+|$check_mirrored          |0b****0***          |0      |0       |0       |0                 |       |
+|-                        |0b****1***          |0      |0       |0       |0                 |       |
+|$bridged_metadata        |0                   |1      |1       |0       |2                 |       |
+|$mirrored                |0                   |0      |0       |0       |0                 |       |
+|start                    |0b*******011000000  |0      |0       |0       |0                 |       |
+|-                        |0x****              |0      |0       |0       |0                 |       |
+|parse_packet_out         |0                   |0      |0       |0       |0                 |       |
+|parse_ethernet           |0                   |4      |1       |2       |7                 |       |
+|parse_ethernet.$split_0  |0x0800              |1      |0       |0       |1                 |       |
+|-                        |0x****              |1      |0       |0       |1                 |       |
+|parse_ipv4               |0x06                |1      |2       |4       |7                 |       |
+|-                        |0x11                |1      |2       |4       |7                 |       |
+|-                        |0x01                |1      |2       |4       |7                 |       |
+|-                        |0x**                |1      |2       |4       |7                 |       |
+|parse_tcp                |0                   |1      |4       |2       |7                 |       |
+|parse_tcp.$split_0       |0                   |0      |2       |0       |2                 |       |
+|parse_udp                |0                   |1      |2       |1       |4                 |       |
+|parse_icmp               |0                   |1      |4       |2       |7                 |       |
++-------------------------+--------------------+-------+--------+--------+------------------+-------+

@@ -1,0 +1,446 @@
+Table Placement ignores container conflicts? 0
+table placement starting pipe
+ingress: [1170036] 1 10 101 1000 10000
+  cond-1(ingress::hdr.packet_out.$valid == 1; => $true, 1 => $false)
+    $true: [1169473]
+      tbl_act
+  tbl_act_0
+    stats FabricIngress.acl.acl_port_counter 0K
+  acl_acl{ T 193+2, 2 1K }
+  cond-2(ingress::ig_intr_md_for_tm.ucast_egress_port[8:7] in 0x1; => $true, ingress::ig_intr_md_for_tm.ucast_egress_port[8:7] in 0x2 && ingress::ig_intr_md_for_tm.ucast_egress_port[6:3] in 0x1ff; => $true, 1 => $false)
+    $true: [1169743]
+      tbl_act_1
+        stats FabricIngress.port_counters_control.egress_port_counter 0K
+  cond-3(ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port[8:7] in 0x1; => $true, ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port[8:7] in 0x2 && ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port[6:3] in 0x1ff; => $true, 1 => $false)
+    $true: [1169788]
+      tbl_act_2
+        stats FabricIngress.port_counters_control.ingress_port_counter 0K
+  tbl_act_3
+egress: [1170511] 1
+  cond-4(egress::fabric_metadata.is_controller_packet_out == 1; => $true, 1 => $false)
+    $true: [1169852]
+      tbl_act_4
+  cond-5(egress::eg_intr_md.egress_port == 192; => $true, 1 => $false)
+    $true: [1170695] 1
+      cond-6(egress::fabric_metadata.is_multicast == 1 && egress::fabric_metadata.clone_to_cpu == 0; => $true, 1 => $false)
+        $true: [1170011]
+          tbl_act_5
+      tbl_act_6
+
+stage 0, work: [ 1170036, 1170511 ], partly placed 0, placed 0
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-1
+  Group table: tbl_act_0
+  Group table: acl_acl
+  Group table: cond-2
+  Group table: cond-3
+  Group table: tbl_act_3
+try_place_table(cond-1, stage=0)
+  - making cond-1 gateway on tbl_act
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 0
+  try_place_table returning 512 of tbl_act in stage 0
+    Pl vector: [ tbl_act ]
+    - skipping tbl_act_0 as its dependent on: cond-1
+    - skipping acl_acl as its dependent on: cond-1
+    - skipping cond-2 as its dependent on: cond-1 acl_acl
+    - skipping cond-3 as its dependent on: cond-1
+    - skipping tbl_act_3 as its dependent on: cond-1
+  Group table: cond-4
+  Group table: cond-5
+try_place_table(cond-4, stage=0)
+  - making cond-4 gateway on tbl_act_4
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 0
+  try_place_table returning 512 of tbl_act_4 in stage 0
+    Pl vector: [ tbl_act_4 ]
+    - skipping cond-5 as its dependent on: cond-4
+found 2 tables that could be placed: [ tbl_act, tbl_act_4 ]
+    Updating best to first table seen: tbl_act
+placing 512 entries of tbl_act (with gw cond-1) in stage 0(0)
+  inserting tbl_act into placed_table_names
+  inserting cond-1 into placed_table_names
+stage 0, work: [ 1170036, 1170511 ], partly placed 0, placed 1
+    { id=1 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-1
+  Group table: tbl_act_0
+  Group table: acl_acl
+  Group table: cond-2
+  Group table: cond-3
+  Group table: tbl_act_3
+    - skipping cond-1 as its already done
+try_place_table(tbl_act_0, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_0 in stage 0
+    Pl vector: [ tbl_act_0 ]
+try_place_table(acl_acl, stage=0)
+  - dependency between tbl_act and table advances stage
+  Initial stage is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1024 of acl_acl in stage 1
+    Pl vector: [ acl_acl ]
+    - skipping cond-2 as its dependent on: acl_acl
+try_place_table(cond-3, stage=0)
+  - making cond-3 gateway on tbl_act_2
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_2 in stage 0
+    Pl vector: [ tbl_act_2 ]
+try_place_table(tbl_act_3, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_3 in stage 0
+    Pl vector: [ tbl_act_3 ]
+  Group table: cond-4
+  Group table: cond-5
+try_place_table(cond-4, stage=0)
+  - making cond-4 gateway on tbl_act_4
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_4 in stage 0
+    Pl vector: [ tbl_act_4 ]
+    - skipping cond-5 as its dependent on: cond-4
+found 5 tables that could be placed: [ tbl_act_0, acl_acl, tbl_act_2, tbl_act_3, tbl_act_4 ]
+    Updating best to first table seen: tbl_act_0
+    Updating best to tbl_act_2 from tbl_act_0 for reason: default choice
+    Updating best to tbl_act_3 from tbl_act_2 for reason: default choice
+    Updating best to tbl_act_4 from tbl_act_3 for reason: default choice
+placing 512 entries of tbl_act_4 (with gw cond-4) in stage 0(1)
+  inserting tbl_act_4 into placed_table_names
+  inserting cond-4 into placed_table_names
+stage 0, work: [ 1170036, 1170511 ], partly placed 0, placed 2
+    { id=2 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-1
+  Group table: tbl_act_0
+  Group table: acl_acl
+  Group table: cond-2
+  Group table: cond-3
+  Group table: tbl_act_3
+    - skipping cond-1 as its already done
+try_place_table(tbl_act_0, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_0 in stage 0
+    Pl vector: [ tbl_act_0 ]
+try_place_table(acl_acl, stage=0)
+  - dependency between tbl_act and table advances stage
+  Initial stage is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1024 of acl_acl in stage 1
+    Pl vector: [ acl_acl ]
+    - skipping cond-2 as its dependent on: acl_acl
+try_place_table(cond-3, stage=0)
+  - making cond-3 gateway on tbl_act_2
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_2 in stage 0
+    Pl vector: [ tbl_act_2 ]
+try_place_table(tbl_act_3, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_3 in stage 0
+    Pl vector: [ tbl_act_3 ]
+  Group table: cond-4
+  Group table: cond-5
+    - skipping cond-4 as its already done
+try_place_table(cond-5, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 0 of cond-5 in stage 0
+    Pl vector: [ cond-5 ]
+found 5 tables that could be placed: [ tbl_act_0, acl_acl, tbl_act_2, tbl_act_3, cond-5 ]
+    Updating best to first table seen: tbl_act_0
+    Updating best to tbl_act_2 from tbl_act_0 for reason: default choice
+    Updating best to tbl_act_3 from tbl_act_2 for reason: default choice
+    Updating best to cond-5 from tbl_act_3 for reason: default choice
+placing 0 entries of cond-5 in stage 0(2)
+  inserting cond-5 into placed_table_names
+stage 0, work: [ 1170036, 1170695 ], partly placed 0, placed 3
+    { id=3 ram=0 tcam=0 mram=0 eixb=2 tixb=0 malu=0 salu=0 }
+  Group table: cond-1
+  Group table: tbl_act_0
+  Group table: acl_acl
+  Group table: cond-2
+  Group table: cond-3
+  Group table: tbl_act_3
+    - skipping cond-1 as its already done
+try_place_table(tbl_act_0, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_0 in stage 0
+    Pl vector: [ tbl_act_0 ]
+try_place_table(acl_acl, stage=0)
+  - dependency between tbl_act and table advances stage
+  Initial stage is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1024 of acl_acl in stage 1
+    Pl vector: [ acl_acl ]
+    - skipping cond-2 as its dependent on: acl_acl
+try_place_table(cond-3, stage=0)
+  - making cond-3 gateway on tbl_act_2
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_2 in stage 0
+    Pl vector: [ tbl_act_2 ]
+try_place_table(tbl_act_3, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_3 in stage 0
+    Pl vector: [ tbl_act_3 ]
+  Group table: cond-6
+  Group table: tbl_act_6
+try_place_table(cond-6, stage=0)
+  - making cond-6 gateway on tbl_act_5
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_5 in stage 0
+    Pl vector: [ tbl_act_5 ]
+    - skipping tbl_act_6 as its dependent on: cond-6
+found 5 tables that could be placed: [ tbl_act_0, acl_acl, tbl_act_2, tbl_act_3, tbl_act_5 ]
+    Updating best to first table seen: tbl_act_0
+    Updating best to tbl_act_2 from tbl_act_0 for reason: default choice
+    Updating best to tbl_act_3 from tbl_act_2 for reason: default choice
+    Updating best to tbl_act_5 from tbl_act_3 for reason: default choice
+placing 512 entries of tbl_act_5 (with gw cond-6) in stage 0(3)
+  inserting tbl_act_5 into placed_table_names
+  inserting cond-6 into placed_table_names
+stage 0, work: [ 1170036, 1170695 ], partly placed 0, placed 4
+    { id=4 ram=0 tcam=0 mram=0 eixb=2 tixb=0 malu=0 salu=0 }
+  Group table: cond-1
+  Group table: tbl_act_0
+  Group table: acl_acl
+  Group table: cond-2
+  Group table: cond-3
+  Group table: tbl_act_3
+    - skipping cond-1 as its already done
+try_place_table(tbl_act_0, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_0 in stage 0
+    Pl vector: [ tbl_act_0 ]
+try_place_table(acl_acl, stage=0)
+  - dependency between tbl_act and table advances stage
+  Initial stage is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1024 of acl_acl in stage 1
+    Pl vector: [ acl_acl ]
+    - skipping cond-2 as its dependent on: acl_acl
+try_place_table(cond-3, stage=0)
+  - making cond-3 gateway on tbl_act_2
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_2 in stage 0
+    Pl vector: [ tbl_act_2 ]
+try_place_table(tbl_act_3, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_3 in stage 0
+    Pl vector: [ tbl_act_3 ]
+  Group table: cond-6
+  Group table: tbl_act_6
+    - skipping cond-6 as its already done
+try_place_table(tbl_act_6, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_6 in stage 0
+    Pl vector: [ tbl_act_6 ]
+found 5 tables that could be placed: [ tbl_act_0, acl_acl, tbl_act_2, tbl_act_3, tbl_act_6 ]
+    Updating best to first table seen: tbl_act_0
+    Updating best to tbl_act_2 from tbl_act_0 for reason: default choice
+    Updating best to tbl_act_3 from tbl_act_2 for reason: default choice
+    Updating best to tbl_act_6 from tbl_act_3 for reason: default choice
+placing 512 entries of tbl_act_6 in stage 0(4)
+  inserting tbl_act_6 into placed_table_names
+stage 0, work: [ 1170036 ], partly placed 0, placed 5
+    { id=5 ram=0 tcam=0 mram=0 eixb=2 tixb=0 malu=0 salu=0 }
+  Group table: cond-1
+  Group table: tbl_act_0
+  Group table: acl_acl
+  Group table: cond-2
+  Group table: cond-3
+  Group table: tbl_act_3
+    - skipping cond-1 as its already done
+try_place_table(tbl_act_0, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_0 in stage 0
+    Pl vector: [ tbl_act_0 ]
+try_place_table(acl_acl, stage=0)
+  - dependency between tbl_act and table advances stage
+  Initial stage is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1024 of acl_acl in stage 1
+    Pl vector: [ acl_acl ]
+    - skipping cond-2 as its dependent on: acl_acl
+try_place_table(cond-3, stage=0)
+  - making cond-3 gateway on tbl_act_2
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_2 in stage 0
+    Pl vector: [ tbl_act_2 ]
+try_place_table(tbl_act_3, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_3 in stage 0
+    Pl vector: [ tbl_act_3 ]
+found 4 tables that could be placed: [ tbl_act_0, acl_acl, tbl_act_2, tbl_act_3 ]
+    Updating best to first table seen: tbl_act_0
+    Updating best to tbl_act_2 from tbl_act_0 for reason: default choice
+    Updating best to tbl_act_3 from tbl_act_2 for reason: default choice
+placing 512 entries of tbl_act_3 in stage 0(5)
+  inserting tbl_act_3 into placed_table_names
+stage 0, work: [ 1170036 ], partly placed 0, placed 6
+    { id=6 ram=0 tcam=0 mram=0 eixb=2 tixb=0 malu=0 salu=0 }
+  Group table: cond-1
+  Group table: tbl_act_0
+  Group table: acl_acl
+  Group table: cond-2
+  Group table: cond-3
+  Group table: tbl_act_3
+    - skipping cond-1 as its already done
+try_place_table(tbl_act_0, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_0 in stage 0
+    Pl vector: [ tbl_act_0 ]
+try_place_table(acl_acl, stage=0)
+  - dependency between tbl_act and table advances stage
+  Initial stage is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1024 of acl_acl in stage 1
+    Pl vector: [ acl_acl ]
+    - skipping cond-2 as its dependent on: acl_acl
+try_place_table(cond-3, stage=0)
+  - making cond-3 gateway on tbl_act_2
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_2 in stage 0
+    Pl vector: [ tbl_act_2 ]
+    - skipping tbl_act_3 as its already done
+found 3 tables that could be placed: [ tbl_act_0, acl_acl, tbl_act_2 ]
+    Updating best to first table seen: tbl_act_0
+    Updating best to tbl_act_2 from tbl_act_0 for reason: default choice
+placing 512 entries of tbl_act_2 (with gw cond-3) in stage 0(6)
+  inserting tbl_act_2 into placed_table_names
+  inserting cond-3 into placed_table_names
+stage 0, work: [ 1170036 ], partly placed 0, placed 7
+    { id=7 ram=0 tcam=0 mram=0 eixb=2 tixb=0 malu=0 salu=0 }
+  Group table: cond-1
+  Group table: tbl_act_0
+  Group table: acl_acl
+  Group table: cond-2
+  Group table: cond-3
+  Group table: tbl_act_3
+    - skipping cond-1 as its already done
+try_place_table(tbl_act_0, stage=0)
+  Initial stage is 0
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 512 of tbl_act_0 in stage 0
+    Pl vector: [ tbl_act_0 ]
+try_place_table(acl_acl, stage=0)
+  - dependency between tbl_act and table advances stage
+  Initial stage is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1024 of acl_acl in stage 1
+    Pl vector: [ acl_acl ]
+    - skipping cond-2 as its dependent on: acl_acl
+    - skipping cond-3 as its already done
+    - skipping tbl_act_3 as its already done
+found 2 tables that could be placed: [ tbl_act_0, acl_acl ]
+    Updating best to first table seen: tbl_act_0
+placing 512 entries of tbl_act_0 in stage 0(7)
+  inserting tbl_act_0 into placed_table_names
+stage 0, work: [ 1170036 ], partly placed 0, placed 8
+    { id=8 ram=0 tcam=0 mram=0 eixb=2 tixb=0 malu=0 salu=0 }
+  Group table: cond-1
+  Group table: tbl_act_0
+  Group table: acl_acl
+  Group table: cond-2
+  Group table: cond-3
+  Group table: tbl_act_3
+    - skipping cond-1 as its already done
+    - skipping tbl_act_0 as its already done
+try_place_table(acl_acl, stage=0)
+  - dependency between tbl_act and table advances stage
+  Initial stage is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1024 of acl_acl in stage 1
+    Pl vector: [ acl_acl ]
+    - skipping cond-2 as its dependent on: acl_acl
+    - skipping cond-3 as its already done
+    - skipping tbl_act_3 as its already done
+found 1 tables that could be placed: [ acl_acl ]
+    Updating best to first table seen: acl_acl
+placing 1024 entries of acl_acl in stage 1(10)
+  inserting acl_acl into placed_table_names
+stage 1, work: [ 1170036 ], partly placed 0, placed 9
+    { id=1 ram=2 tcam=10 mram=1 eixb=25 tixb=0 malu=0 salu=0 }
+  Group table: cond-1
+  Group table: tbl_act_0
+  Group table: acl_acl
+  Group table: cond-2
+  Group table: cond-3
+  Group table: tbl_act_3
+    - skipping cond-1 as its already done
+    - skipping tbl_act_0 as its already done
+    - skipping acl_acl as its already done
+try_place_table(cond-2, stage=1)
+  - making cond-2 gateway on tbl_act_1
+  - dependency between acl_acl and table advances stage
+  Initial stage is 2
+  Selected stage: 2    Furthest stage: 2
+  try_place_table returning 512 of tbl_act_1 in stage 2
+    Pl vector: [ tbl_act_1 ]
+    - skipping cond-3 as its already done
+    - skipping tbl_act_3 as its already done
+found 1 tables that could be placed: [ tbl_act_1 ]
+    Updating best to first table seen: tbl_act_1
+placing 512 entries of tbl_act_1 (with gw cond-2) in stage 2(20)
+  inserting tbl_act_1 into placed_table_names
+  inserting cond-2 into placed_table_names
+Table placement placed 10 tables in 3 stages
+  Table tbl_act_1 logical id 0x20 entries=512
+    attached table FabricIngress.port_counters_control.egress_port_counter entries=200
+  Gateway cond-2 is also logical id 0x20
+  Table acl_acl logical id 0x10 entries=1024
+    attached table FabricIngress.acl.acl_counter entries=1024
+  Table tbl_act_0 logical id 0x7 entries=512
+    attached table FabricIngress.acl.acl_port_counter entries=132
+  Table tbl_act_2 logical id 0x6 entries=512
+    attached table FabricIngress.port_counters_control.ingress_port_counter entries=200
+  Gateway cond-3 is also logical id 0x6
+  Table tbl_act_3 logical id 0x5 entries=512
+  Table tbl_act_6 logical id 0x4 entries=512
+  Table tbl_act_5 logical id 0x3 entries=512
+  Gateway cond-6 is also logical id 0x3
+  Table cond-5 logical id 0x2 entries=0
+  Table tbl_act_4 logical id 0x1 entries=512
+  Gateway cond-4 is also logical id 0x1
+  Table tbl_act logical id 0x0 entries=512
+  Gateway cond-1 is also logical id 0x0
+Finished table placement decisions pipe
+folding gateway cond-1 onto tbl_act
+folding gateway cond-3 onto tbl_act_2
+  Adding Ternary Indirect table to acl_acl
+folding gateway cond-2 onto tbl_act_1
+folding gateway cond-4 onto tbl_act_4
+folding gateway cond-6 onto tbl_act_5
+table placement completed pipe
+ingress: [1172615] 1 10 101 1000 10000
+  0: tbl_act(ingress::hdr.packet_out.$valid == 1;, 1 => $false)
+  5: tbl_act_3
+  6: tbl_act_2(ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port[8:7] in 0x1;, ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port[8:7] in 0x2 && ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port[6:3] in 0x1ff;, 1 => $false)
+    stats FabricIngress.port_counters_control.ingress_port_counter 0K
+  7: tbl_act_0
+    stats FabricIngress.acl.acl_port_counter 0K
+  10: acl_acl{ T 193+11, 2 1K }
+  20: tbl_act_1(ingress::ig_intr_md_for_tm.ucast_egress_port[8:7] in 0x1;, ingress::ig_intr_md_for_tm.ucast_egress_port[8:7] in 0x2 && ingress::ig_intr_md_for_tm.ucast_egress_port[6:3] in 0x1ff;, 1 => $false)
+    stats FabricIngress.port_counters_control.egress_port_counter 0K
+egress: [1173085] 1
+  1: tbl_act_4(egress::fabric_metadata.is_controller_packet_out == 1;, 1 => $false)
+  2: cond-5(egress::eg_intr_md.egress_port == 192; => $true, 1 => $false)
+    $true: [1173266] 1
+      3: tbl_act_5(egress::fabric_metadata.is_multicast == 1 && egress::fabric_metadata.clone_to_cpu == 0;, 1 => $false)
+      4: tbl_act_6
+

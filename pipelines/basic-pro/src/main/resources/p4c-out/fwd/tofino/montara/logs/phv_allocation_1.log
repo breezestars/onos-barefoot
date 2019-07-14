@@ -1,0 +1,8 @@
+--- BEGIN PHV ALLOCATION ----------------------------------------------------
+Add @pa_container_size that: 66:ingress::compiler_generated_meta.mirror_source<8> ^x ^x meta no_split deparsed_bottom_bits must be allocated to  [ B  ]  container(s)
+Add @pa_container_size that: 65:ingress::compiler_generated_meta.mirror_id<10> ^x ^x meta mirror%{64:ingress::ig_intr_md_for_dprsr.mirror_type#0}% no_split deparsed_bottom_bits exact_containers must be allocated to  [ H  ]  container(s)
+ingress::compiler_generated_meta.mirror_id<10> meta mirror%{64:ingress::ig_intr_md_for_dprsr.mirror_type#0}% no_split deparsed_bottom_bits exact_containers [0:9] must goto H
+ingress::compiler_generated_meta.mirror_source<8> meta no_split deparsed_bottom_bits [0:7] must goto B
+
+
+PHV ALLOCATION SUCCESSFUL

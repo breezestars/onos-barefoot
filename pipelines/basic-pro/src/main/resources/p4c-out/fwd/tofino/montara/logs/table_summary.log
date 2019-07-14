@@ -1,0 +1,24 @@
+Table allocation done 1 time(s)
+Number of stages in table allocation: 3
+Critical path length through the table dependency graph: 3
+Number of tables allocated: 10
++-------+-----------------------+
+|Stage  |Table Name             |
++-------+-----------------------+
+|0      |tbl_act                |
+|0      |tbl_act_4              |
+|0      |cond-5                 |
+|0      |tbl_act_5              |
+|0      |tbl_act_6              |
+|0      |tbl_act_3              |
+|0      |tbl_act_2              |
+|0      |tbl_act_0              |
+|1      |FabricIngress.acl.acl  |
+|2      |tbl_act_1              |
+|0      |cond-1                 |
+|0      |cond-3                 |
+|2      |cond-2                 |
+|0      |cond-4                 |
+|0      |cond-6                 |
++-------+-----------------------+
+
