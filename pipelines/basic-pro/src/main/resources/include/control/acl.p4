@@ -55,13 +55,13 @@ control Acl (inout parsed_headers_t hdr,
     @description("Description ACL Table")
     table acl {
         key = {
-            standard_metadata.ingress_port : ternary;
-            hdr.ethernet.src_addr          : ternary;
-            hdr.ethernet.dst_addr          : ternary;
-            hdr.ethernet.eth_type          : ternary;
-            hdr.ipv4.src_addr              : ternary;
-            hdr.ipv4.dst_addr              : ternary;
-            hdr.ipv4.protocol              : ternary;
+            standard_metadata.ingress_port : ternary @name("port_num");
+            hdr.ethernet.src_addr          : ternary @name("src_addr");
+            hdr.ethernet.dst_addr          : ternary @name("dst_addr");
+            hdr.ethernet.eth_type          : ternary @name("eth_type");
+            hdr.ipv4.src_addr              : ternary @name("src_addr");
+            hdr.ipv4.dst_addr              : ternary @name("dst_addr");
+            hdr.ipv4.protocol              : ternary @name("protocol");
         }
 
         actions = {

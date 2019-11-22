@@ -1,0 +1,29 @@
+{
+  "devices": {
+    "device:tofino:0": {
+      "ports": {
+        "1/0": {
+          "name": "1/0",
+          "speed": 10000,
+          "enabled": true,
+          "number": 128,
+          "removed": false,
+          "type": "fiber"
+        },
+        "1/1": {
+          "name": "1/1",
+          "speed": 10000,
+          "enabled": true,
+          "number": 129,
+          "removed": false,
+          "type": "fiber"
+        }
+      },
+      "basic": {
+        "managementAddress": "grpc://10.211.55.5:50051?device_id=0",
+        "driver": "barefoot",
+        "pipeconf": "org.onosproject.pipelines.basic.pro.montara"
+      }
+    }
+  }
+}
