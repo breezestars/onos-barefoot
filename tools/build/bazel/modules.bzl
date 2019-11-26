@@ -192,6 +192,7 @@ ONOS_APPS = [
     "//apps/routing/fibinstaller:onos-apps-routing-fibinstaller-oar",
     "//apps/routing/cpr:onos-apps-routing-cpr-oar",
     "//apps/routing/fpm:onos-apps-routing-fpm-oar",
+    "//apps/p4-based-routing/fibinstaller:onos-apps-p4-based-routing-fibinstaller-oar",
     "//apps/vtn:onos-apps-vtn-oar",
     "//apps/faultmanagement:onos-apps-faultmanagement-oar",
     "//apps/openstacknode:onos-apps-openstacknode-oar",
