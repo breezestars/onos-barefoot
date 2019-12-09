@@ -1,0 +1,48 @@
+---
+
+stages:
+  - test
+  - build
+  - deploy
+  - release
+
+variables:
+
+onos-test:
+  image: adoptopenjdk/openjdk11:slim
+  stage: test
+  before_script:
+    - export DEBIAN_FRONTEND=noninteractive
+    - export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
+    - apt-get update -qq
+    - apt-get install -qqy ca-certificates zip python python3 git bzip2 build-essential curl unzip -y
+    - curl -L -o bazel.sh https://github.com/bazelbuild/bazel/releases/download/1.0.0/bazel-1.0.0-installer-linux-x86_64.sh
+    - chmod +x bazel.sh && ./bazel.sh
+    - env
+  script:
+    - bazel test --build_tests_only --jobs=HOST_CPUS*.25 --local_cpu_resources=HOST_CPUS*.25 //...
+
+onos-build:
+  image: adoptopenjdk/openjdk11:slim
+  stage: build
+  before_script:
+    - export DEBIAN_FRONTEND=noninteractive
+    - export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
+    - apt-get update -qq
+    - apt-get install -qqy ca-certificates zip python python3 git bzip2 build-essential curl unzip -y
+    - curl -L -o bazel.sh https://github.com/bazelbuild/bazel/releases/download/1.0.0/bazel-1.0.0-installer-linux-x86_64.sh
+    - chmod +x bazel.sh && ./bazel.sh
+    - env
+  script:
+    - bazel build onos --jobs=HOST_CPUS*.25 --local_cpu_resources=HOST_CPUS*.25
+
+onos-build-docker:
+  image: docker:19.03.1-dind
+  stage: build
+  before_script:
+    - docker info
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $CI_REGISTRY/p4/dev/onos .
+    - docker push $CI_REGISTRY/p4/dev/onos
+
