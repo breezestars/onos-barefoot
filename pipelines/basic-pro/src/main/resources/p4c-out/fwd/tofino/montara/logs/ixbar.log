@@ -1,0 +1,32 @@
+TCAM IXBar Allocation:
++-------+-----+-------+------+-----------------------------------------------------------------------------------------+------+----------------+
+| Stage | Ord | Group | Byte |                                         Fields                                          | Bits |      PHV       |
++-------+-----+-------+------+-----------------------------------------------------------------------------------------+------+----------------+
+|   1   | 128 |   0   |  0   |                          ingress::hdr.ethernet.dst_addr[16:23]                          |  8   |  W1 bit[7..0]  |
+|   1   | 129 |   0   |  1   |                          ingress::hdr.ethernet.eth_type[8:15]                           |  8   | W0 bit[15..8]  |
+|   1   | 130 |   0   |  2   |                           ingress::hdr.ethernet.src_addr[0:7]                           |  8   | W0 bit[23..16] |
+|   1   | 131 |   0   |  3   |                          ingress::hdr.ethernet.src_addr[8:15]                           |  8   | W0 bit[31..24] |
+|   1   | 132 |   0   |  4   |                          ingress::hdr.ethernet.src_addr[16:23]                          |  8   |  W2 bit[7..0]  |
+|   1   | 133 |   0   |  5   | ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port[8:8] |  1   |   H3 bit[8]    |
+|   1   | 134 |   1   |  0   |                          ingress::hdr.ethernet.dst_addr[32:39]                          |  8   | W1 bit[23..16] |
+|   1   | 135 |   1   |  1   |                          ingress::hdr.ethernet.dst_addr[40:47]                          |  8   | W1 bit[31..24] |
+|   1   | 136 |   1   |  2   |                             ingress::hdr.ipv4.src_addr[0:7]                             |  8   |  W3 bit[7..0]  |
+|   1   | 137 |   1   |  3   |                          ingress::hdr.ethernet.dst_addr[24:31]                          |  8   | W1 bit[15..8]  |
+|   1   | 138 |   1   |  4   |                          ingress::hdr.ethernet.src_addr[32:39]                          |  8   | W2 bit[23..16] |
+|   1   | 139 |   2   |  0   |                          ingress::hdr.ethernet.src_addr[40:47]                          |  8   | W2 bit[31..24] |
+|   1   | 140 |   2   |  1   |                             ingress::hdr.ipv4.dst_addr[0:7]                             |  8   |  W4 bit[7..0]  |
+|   1   | 141 |   2   |  2   |                          ingress::hdr.ethernet.src_addr[24:31]                          |  8   | W2 bit[15..8]  |
+|   1   | 142 |   2   |  3   |                            ingress::hdr.ipv4.src_addr[16:23]                            |  8   | W3 bit[23..16] |
+|   1   | 143 |   2   |  4   |                            ingress::hdr.ipv4.src_addr[24:31]                            |  8   | W3 bit[31..24] |
+|   1   | 144 |   2   |  5   |                           ingress::hdr.ethernet.eth_type[0:7]                           |  8   |  W0 bit[7..0]  |
+|   1   | 145 |   3   |  0   |                            ingress::hdr.ipv4.src_addr[8:15]                             |  8   | W3 bit[15..8]  |
+|   1   | 146 |   3   |  1   |                            ingress::hdr.ipv4.dst_addr[16:23]                            |  8   | W4 bit[23..16] |
+|   1   | 147 |   3   |  2   |                            ingress::hdr.ipv4.dst_addr[24:31]                            |  8   | W4 bit[31..24] |
+|   1   | 148 |   3   |  3   | ingress::compiler_generated_meta.^bridged_metadata.^fields_ig_intr_md_ingress_port[0:7] |  8   |  H3 bit[7..0]  |
+|   1   | 149 |   3   |  4   |                            ingress::hdr.ipv4.dst_addr[8:15]                             |  8   | W4 bit[15..8]  |
+|   1   | 150 |   4   |  0   |                           ingress::hdr.ethernet.dst_addr[0:7]                           |  8   |  H4 bit[7..0]  |
+|   1   | 151 |   4   |  1   |                          ingress::hdr.ethernet.dst_addr[8:15]                           |  8   | H4 bit[15..8]  |
+|   1   | 152 |   4   |  2   |                             ingress::hdr.ipv4.protocol[0:7]                             |  8   |  B3 bit[7..0]  |
++-------+-----+-------+------+-----------------------------------------------------------------------------------------+------+----------------+
+
+

@@ -1,0 +1,18 @@
+digraph egressDeparserImpl {
+subgraph cluster {
+graph [
+label="", labeljust=r, style=bold];
+0[label=__START__, margin="", shape=rectangle, style=solid];
+1[label=__EXIT__, margin="", shape=rectangle, style=solid];
+2[label="hdr.ipv4.isValid();", margin="", shape=rectangle, style=solid];
+3[label="hdr.ipv4.hdr_checksum = checksum_1.update({hdr.ipv4.version, hdr.ipv4.ihl, hdr.ipv4.dscp, hdr.ipv4.ecn, hdr.ipv4.total_len, hdr.ipv4.identification, hdr.ipv4.flags, hdr.ipv4.frag_offset, hdr.ipv4.ttl, hdr.ipv4.protocol, hdr.ipv4.src_addr, hdr.ipv4.dst_addr});", margin="", shape=rectangle, style=solid];
+4[label="packet.emit<packet_in_header_t>(hdr.packet_in);
+...
+packet.emit<icmp_t>(hdr.icmp);", margin="", shape=rectangle, style=solid];
+0 -> 2[label=""];
+2 -> 3[label=TRUE];
+2 -> 4[label=FALSE];
+3 -> 4[label=""];
+4 -> 1[label=""];
+}
+}

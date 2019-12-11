@@ -1,0 +1,36 @@
+digraph table_deps {
+   "cond-1" -> "tbl_act" [ label= "",color=green ];
+   "cond-2" -> "tbl_act_1" [ label= "",color=green ];
+   "cond-3" -> "tbl_act_2" [ label= "",color=green ];
+   "cond-4" -> "tbl_act_4" [ label= "",color=green ];
+   "cond-5" -> "cond-6" [ label= "",color=green ];
+   "cond-5" -> "tbl_act_6" [ label= "",color=green ];
+   "cond-6" -> "tbl_act_5" [ label= "",color=green ];
+   "tbl_act" -> "FabricIngress.acl.acl" [ label= "",color=navy ];
+   "FabricIngress.acl.acl" -> "cond-2" [ label= "",color=blueviolet ];
+   "tbl_act" -> "cond-2" [ label= "",color=blueviolet ];
+   "FabricIngress.acl.acl" -> "tbl_act_1" [ label= "",color=blue ];
+   "tbl_act" -> "tbl_act_1" [ label= "",color=blue ];
+   "FabricIngress.acl.acl" -> "cond-2" [ label= "",color=lightblue ];
+   "FabricIngress.acl.acl" -> "tbl_act_1" [ label= "",color=lightblue ];
+   "tbl_act" -> "FabricIngress.acl.acl" [ label= "",color=lightblue ];
+   "tbl_act" -> "cond-2" [ label= "",color=lightblue ];
+   "tbl_act" -> "tbl_act_1" [ label= "",color=lightblue ];
+  subgraph cluster_legend { label="Edge colors"; node [ shape=plaintext, fontsize=10]; edge [ color=white,arrowsize=0.1, len=0.03 ]; ranksep=0.02; nodesep=0.02;
+    "Concurrent" [ fontcolor=black ];
+    "Control" [ fontcolor=green ];
+"Concurrent" -> "Control";
+    "IXBar read" [ fontcolor=blue ];
+"Control" -> "IXBar read";
+    "Action read" [ fontcolor=blueviolet ];
+"IXBar read" -> "Action read";
+    "Anti" [ fontcolor=lightblue ];
+"Action read" -> "Anti";
+    "Output" [ fontcolor=navy ];
+"Anti" -> "Output";
+    "ReductionOR read" [ fontcolor=red ];
+"Output" -> "ReductionOR read";
+    "ReductionOR output" [ fontcolor=pink ];
+"ReductionOR read" -> "ReductionOR output";
+}
+}

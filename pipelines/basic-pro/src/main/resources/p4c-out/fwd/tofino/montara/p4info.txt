@@ -1,0 +1,187 @@
+pkg_info {
+  name: "fwd.p4"
+  version: "1"
+  doc {
+    brief: "L2/L3 switch"
+    description: "L2/L3 switch.\\ Built for test profile."
+  }
+  annotations: "@my_annotation1(\"Ttest_my_annotation1\")"
+  arch: "v1model"
+  organization: "Edgecore"
+  contact: "jimmy_ou@edge-core.com"
+  url: "www.edge-core.com"
+}
+tables {
+  preamble {
+    id: 33618978
+    name: "FabricIngress.acl.acl"
+    alias: "acl"
+    doc {
+      brief: "Brief ACL Table"
+      description: "Description ACL Table"
+    }
+  }
+  match_fields {
+    id: 1
+    name: "standard_metadata.ingress_port"
+    bitwidth: 9
+    match_type: TERNARY
+  }
+  match_fields {
+    id: 2
+    name: "hdr.ethernet.src_addr"
+    bitwidth: 48
+    match_type: TERNARY
+  }
+  match_fields {
+    id: 3
+    name: "hdr.ethernet.dst_addr"
+    bitwidth: 48
+    match_type: TERNARY
+  }
+  match_fields {
+    id: 4
+    name: "hdr.ethernet.eth_type"
+    bitwidth: 16
+    match_type: TERNARY
+  }
+  match_fields {
+    id: 5
+    name: "hdr.ipv4.src_addr"
+    bitwidth: 32
+    match_type: TERNARY
+  }
+  match_fields {
+    id: 6
+    name: "hdr.ipv4.dst_addr"
+    bitwidth: 32
+    match_type: TERNARY
+  }
+  match_fields {
+    id: 7
+    name: "hdr.ipv4.protocol"
+    bitwidth: 8
+    match_type: TERNARY
+  }
+  action_refs {
+    id: 16791932
+  }
+  action_refs {
+    id: 16829684
+  }
+  action_refs {
+    id: 16820765
+  }
+  const_default_action_id: 16820765
+  direct_resource_ids: 318801025
+  size: 1024
+}
+actions {
+  preamble {
+    id: 16829684
+    name: "FabricIngress.acl.punt_to_cpu"
+    alias: "punt_to_cpu"
+  }
+}
+actions {
+  preamble {
+    id: 16791932
+    name: "FabricIngress.acl.output"
+    alias: "output"
+  }
+  params {
+    id: 1
+    name: "port_num"
+    bitwidth: 9
+  }
+}
+actions {
+  preamble {
+    id: 16820765
+    name: "FabricIngress.acl.drop"
+    alias: "drop"
+  }
+}
+counters {
+  preamble {
+    id: 302034342
+    name: "FabricIngress.acl.acl_port_counter"
+    alias: "acl_port_counter"
+  }
+  spec {
+    unit: PACKETS
+  }
+  size: 132
+}
+counters {
+  preamble {
+    id: 302011205
+    name: "FabricIngress.port_counters_control.egress_port_counter"
+    alias: "egress_port_counter"
+  }
+  spec {
+    unit: BOTH
+  }
+  size: 200
+}
+counters {
+  preamble {
+    id: 302002771
+    name: "FabricIngress.port_counters_control.ingress_port_counter"
+    alias: "ingress_port_counter"
+  }
+  spec {
+    unit: BOTH
+  }
+  size: 200
+}
+direct_counters {
+  preamble {
+    id: 318801025
+    name: "FabricIngress.acl.acl_counter"
+    alias: "acl_counter"
+  }
+  spec {
+    unit: BOTH
+  }
+  direct_table_id: 33618978
+}
+controller_packet_metadata {
+  preamble {
+    id: 67146229
+    name: "packet_in"
+    alias: "packet_in"
+    annotations: "@controller_header(\"packet_in\")"
+  }
+  metadata {
+    id: 1
+    name: "ingress_port"
+    bitwidth: 9
+  }
+  metadata {
+    id: 2
+    name: "_pad"
+    bitwidth: 7
+  }
+}
+controller_packet_metadata {
+  preamble {
+    id: 67121543
+    name: "packet_out"
+    alias: "packet_out"
+    annotations: "@not_extracted_in_egress"
+    annotations: "@controller_header(\"packet_out\")"
+  }
+  metadata {
+    id: 1
+    name: "egress_port"
+    bitwidth: 9
+  }
+  metadata {
+    id: 2
+    name: "_pad"
+    bitwidth: 7
+  }
+}
+type_info {
+}

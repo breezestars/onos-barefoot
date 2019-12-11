@@ -1,0 +1,127 @@
+{
+  "build_date": "Thu Jul 11 10:30:28 2019",
+  "target": "tofino",
+  "compiler_version": "8.9.0",
+  "run_id": "0ecf3262bba447de",
+  "architectureConfig": {
+    "pipes": [
+      {
+        "pipe": 0,
+        "ingress": {
+          "pipeName": "ingress",
+          "nextControl": [
+            {
+              "pipe": 0,
+              "pipeName": "egress"
+            }
+          ]
+        },
+        "egress": {
+          "pipeName": "egress",
+          "nextControl": []
+        }
+      }
+    ],
+    "name": "64q"
+  },
+  "compile_command": "/root/.bfsde/bf-sde-8.9.0/install/bin/bf-p4c --arch v1model -g -o /root/fwd/p4c-out/fwd/tofino/montara -I /root/fwd -DCPU_PORT=192 --p4runtime-files /root/fwd/p4c-out/fwd/tofino/montara/p4info.txt,/root/fwd/p4c-out/fwd/tofino/montara/p4info.json fabric.p4",
+  "programs": [
+    {
+      "program_name": "fabric.p4",
+      "p4_version": "p4-16",
+      "pipes": [
+        {
+          "files": {
+            "metrics": {
+              "path": "pipe/logs/metrics.json"
+            },
+            "graphs": [
+              {
+                "path": "pipe/graphs/ingressParserImpl.dot",
+                "graph_type": "parser",
+                "graph_format": ".dot",
+                "gress": "ingress"
+              },
+              {
+                "path": "pipe/graphs/egressParserImpl.dot",
+                "graph_type": "parser",
+                "graph_format": ".dot",
+                "gress": "egress"
+              },
+              {
+                "path": "pipe/graphs/program_graph.dot",
+                "graph_type": "table",
+                "graph_format": ".dot",
+                "gress": "ingress"
+              },
+              {
+                "path": "pipe/graphs/table_dep_graph_placement_0.dot",
+                "graph_type": "table",
+                "graph_format": ".dot",
+                "gress": "ingress"
+              }
+            ],
+            "resources": [
+              {
+                "path": "pipe/logs/resources.json",
+                "type": "resources"
+              }
+            ],
+            "context": {
+              "path": "pipe/context.json"
+            },
+            "logs": [
+              {
+                "path": "pipe/logs/parser.log",
+                "log_type": "parser"
+              },
+              {
+                "path": "pipe/logs/bridge_metadata_0.log",
+                "log_type": "parser"
+              },
+              {
+                "path": "pipe/logs/phv_allocation_1.log",
+                "log_type": "phv"
+              },
+              {
+                "path": "pipe/logs/table_placement_2.log",
+                "log_type": "mau"
+              },
+              {
+                "path": "pipe/logs/table_summary.log",
+                "log_type": "mau"
+              },
+              {
+                "path": "pipe/logs/ixbar.log",
+                "log_type": "mau"
+              },
+              {
+                "path": "pipe/logs/parser.characterize.log",
+                "log_type": "parser"
+              },
+              {
+                "path": "pipe/logs/power.json",
+                "log_type": "power"
+              },
+              {
+                "path": "pipe/logs/phv.json",
+                "log_type": "phv"
+              },
+              {
+                "path": "pipe/logs/mau.json",
+                "log_type": "mau"
+              }
+            ]
+          },
+          "pipe_id": 0,
+          "pipe_name": "pipe"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.0.1",
+  "conf_file": "fabric.conf",
+  "architecture": "v1model",
+  "compilation_succeeded": true,
+  "compilation_time": "6.97757577896"
+}
