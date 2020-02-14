@@ -5,6 +5,8 @@ COMPILE_DEPS = CORE_DEPS + [
     "//apps/inbandtelemetry/api:onos-apps-inbandtelemetry-api",
     "//pipelines/basic:onos-pipelines-basic",
     "//drivers/default:onos-drivers-default",
+    "//apps/routing-api:onos-apps-routing-api",
+    "//apps/route-service/api:onos-apps-route-service-api",
 ]
 
 BUNDLES = [

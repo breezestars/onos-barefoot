@@ -75,10 +75,13 @@ public final class BasicConstants {
             PiMatchFieldId.of("ig_md.port_lag_index");
     public static final PiMatchFieldId IG_MD_NEXTHOP =
             PiMatchFieldId.of("ig_md.nexthop");
-    public static final PiMatchFieldId LKP_MAC_DST_ADDR =
-            PiMatchFieldId.of("lkp.mac_dst_addr");
-    public static final PiMatchFieldId HDR_PACKET_OUT_VALID =
-            PiMatchFieldId.of("hdr.packet_out.$valid$");
+    public static final PiMatchFieldId DST_IP_ADDR =
+            PiMatchFieldId.of("dst_addr");
+    public static final PiMatchFieldId EGRESS_PORT =
+            PiMatchFieldId.of("egress_port");
+    public static final PiMatchFieldId SWITCHINGRESS_NEXTHOP_INDEX =
+            PiMatchFieldId.of("nexthop_index");
+
     // Table IDs .(Defined.)
     public static final PiTableId SWITCHINGRESS_PACKET_VALIDATION_VALIDATE_ETHERNET =
             PiTableId.of("SwitchIngress.pkt_validation.validate_ethernet");
@@ -88,8 +91,8 @@ public final class BasicConstants {
             PiTableId.of("SwitchIngress.pkt_validation.validate_other");
     public static final PiTableId SWITCHINGRESS_UNITCAST_IPV4_FIB_RIB =
             PiTableId.of("SwitchIngress.unicast.ipv4_fib.rib");
-    public static final PiTableId SWITCHINGRESS_UNITCAST_IPV4_FIB_FIB_LPM =
-            PiTableId.of("SwitchIngress.unicast.ipv4_fib.fib_lpm");
+    public static final PiTableId SWITCHINGRESS_UNITCAST_IPV4_FIB_FWD =
+            PiTableId.of("SwitchIngress.unicast.ipv4_fib.fib_fwd");
     public static final PiTableId SWITCHINGRESS_UNITCAST_RMAC =
             PiTableId.of("SwitchIngress.unicast.rmac");
     public static final PiTableId SWITCHINGRESS_INGRESS_PORT_MAPPING =
@@ -100,6 +103,11 @@ public final class BasicConstants {
             PiTableId.of("SwitchIngress.ingress_port_mapping.vlan_to_bd_mapping");
     public static final PiTableId SWITCHINGRESS_NEXTHOP =
             PiTableId.of("SwitchIngress.nexthop.nexthop");
+    public static final PiTableId SWITCHINGRESS_ACL_IPV4_ACL =
+            PiTableId.of("SwitchIngress.acl.ipv4_acl.acl");
+    public static final PiTableId SWITCHINGRESS_REWRITE_SMAC_REWRITE_BY_PORTID =
+            PiTableId.of("SwitchEgress.rewrite.smac_rewrite_by_portid");
+
     // Action IDs
     public static final PiActionId ACT_NOACTION =
             PiActionId.of("NoAction");
@@ -135,10 +143,12 @@ public final class BasicConstants {
             PiActionId.of("SwitchIngress.pkt_validation.set_arp_opcode");
     public static final PiActionId SWITCHINGRESS_UNICAST_IPV4_FIB_RIB_ROUTE =
             PiActionId.of("SwitchIngress.unicast.ipv4_fib.rib_route");
-    public static final PiActionId SWITCHINGRESS_UNICAST_IPV4_FIB_FIB_FWD =
-            PiActionId.of("SwitchIngress.unicast.ipv4_fib.fib_fwd");
+    public static final PiActionId SWITCHINGRESS_UNICAST_IPV4_FIB_RIB_MISS =
+            PiActionId.of("SwitchIngress.unicast.ipv4_fib.rib_miss");
     public static final PiActionId SWITCHINGRESS_UNICAST_IPV4_FIB_FIB_MISS =
             PiActionId.of("SwitchIngress.unicast.ipv4_fib.fib_miss");
+    public static final PiActionId SWITCHINGRESS_UNICAST_IPV4_FIB_FIB_FWD =
+            PiActionId.of("SwitchIngress.unicast.ipv4_fib.fib_fwd");
     public static final PiActionId SWITCHINGRESS_UNICAST_IPV4_FIB_FIB_MYIP =
             PiActionId.of("SwitchIngress.unicast.ipv4_fib.fib_myip");
     public static final PiActionId SWITCHINGRESS_UNICAST_RMAC_HIT =
@@ -161,8 +171,16 @@ public final class BasicConstants {
             PiActionId.of("SwitchIngress.nexthop.set_nexthop_properties_glean");
     public static final PiActionId SWITCHINGRESS_NEXTHOP_SET_NEXTHOP_PROPERTIES_DROP =
             PiActionId.of("SwitchIngress.nexthop.set_nexthop_properties_drop");
+    public static final PiActionId SWITCHINGRESS_NEXTHOP_SET_NEXTHOP =
+            PiActionId.of("SwitchIngress.nexthop.set_nexthop");
     public static final PiActionId SWITCHINGRESS_NEXTHOP_SET_TUNNEL_PROPERTIES =
             PiActionId.of("SwitchIngress.nexthop.set_tunnel_properties");
+    public static final PiActionId SWITCHINGRESS_ACL_OUTPUT =
+            PiActionId.of("ingress_acl_output");
+    public static final PiActionId SWITCHINGRESS_ACL_DENY =
+            PiActionId.of("ingress_acl_deny");
+    public static final PiActionId SWITCHEGRESS_REWRITE_REWRITE_SMAC =
+            PiActionId.of("SwitchEgress.rewrite.rewrite_smac");
 
     // Action Param IDs
     public static final PiActionParamId REASON = PiActionParamId.of("reason");
@@ -193,4 +211,7 @@ public final class BasicConstants {
     public static final PiActionParamId MGID = PiActionParamId.of("mgid");
     public static final PiActionParamId TUNNEL_INDEX = PiActionParamId.of("tunnel_index");
     public static final PiActionParamId PORT_ID = PiActionParamId.of("port_id");
+    public static final PiActionParamId STATS_INDEX = PiActionParamId.of("stats_index");
+    public static final PiActionParamId SMAC = PiActionParamId.of("smac");
+    public static final PiActionParamId ETH_DST_ADDR = PiActionParamId.of("eth_dst_addr");
 }

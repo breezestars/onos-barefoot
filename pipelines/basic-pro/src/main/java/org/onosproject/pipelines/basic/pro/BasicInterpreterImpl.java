@@ -62,7 +62,7 @@ public class BasicInterpreterImpl extends AbstractHandlerBehaviour
                     .put(1, SWITCHINGRESS_PACKET_VALIDATION_VALIDATE_IPV4)
                     .put(2, SWITCHINGRESS_PACKET_VALIDATION_VALIDATE_OTHER)
                     .put(3, SWITCHINGRESS_UNITCAST_IPV4_FIB_RIB)
-                    .put(4, SWITCHINGRESS_UNITCAST_IPV4_FIB_FIB_LPM)
+                    .put(4, SWITCHINGRESS_UNITCAST_IPV4_FIB_FWD)
                     .put(5, SWITCHINGRESS_UNITCAST_RMAC)
                     .put(6, SWITCHINGRESS_INGRESS_PORT_MAPPING)
                     .put(7, SWITCHINGRESS_INGRESS_PORT_MAPPING_PORT_VLAN_TO_BD_MAPPING)
